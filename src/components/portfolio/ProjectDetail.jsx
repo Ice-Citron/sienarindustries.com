@@ -157,7 +157,6 @@ const GITHUB_REPOS = {
   'game-engine': 'https://github.com/Ice-Citron/CAS-Project--Hazel',
   'ibm-datathon': 'https://github.com/Ice-Citron/IBM-Z-Datathon',
   'new-dejima': 'https://github.com/Ice-Citron/New-Dejima',
-  'nosco-workhours': 'https://github.com/Ice-Citron/Nosco-Workhours-WebApp',
   'skyhammer': 'https://github.com/Ice-Citron/Gemini-Hackathon',
   'edth-warsaw': 'https://github.com/Ice-Citron/EDTH-Warsaw',
   'perplexity-hack': 'https://github.com/Ice-Citron/Perplexity-Hackathon-2025',
