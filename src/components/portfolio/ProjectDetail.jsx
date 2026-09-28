@@ -149,32 +149,6 @@ const DocumentLink = ({ href, title, description, icon = "📄" }) => (
   </a>
 );
 
-// Slug → GitHub repo URL mapping
-const GITHUB_REPOS = {
-  // Computer Science
-  'project-ladder': 'https://github.com/Ice-Citron/Project-Ladder',
-  'project-automaton': 'https://github.com/Ice-Citron/Project-Automaton',
-  'armv8-rackinsert-c': 'https://github.com/Ice-Citron/ARMv8-RackInsert-C',
-  'gpt-valkyrie': 'https://github.com/Ice-Citron/nanoGPT-Valkyrie',
-  'edutech': 'https://github.com/Ice-Citron/Edutech-Recon-Drone',
-  'game-engine': 'https://github.com/Ice-Citron/Sparky',
-  'ibm-datathon': 'https://github.com/Ice-Citron/IBM-Z-Datathon',
-  'new-dejima': 'https://github.com/Ice-Citron/New-Dejima',
-  'skyhammer': 'https://github.com/Ice-Citron/Gemini-Hackathon',
-  'edth-warsaw': 'https://github.com/Ice-Citron/EDTH-Warsaw',
-  'perplexity-hack': 'https://github.com/Ice-Citron/Perplexity-Hackathon-2025',
-  'rockstar-datathon': 'https://github.com/Ice-Citron/Rockstar-GTAV-Datathon',
-  'reply-aim': 'https://github.com/Ice-Citron/Reply-AIM-Hackathon',
-  'rl-iterate': 'https://github.com/Ice-Citron/RL-Iterate-London-Hackathon',
-  'project-liberty': 'https://github.com/Ice-Citron/Project-Liberty',
-  // Engineering
-  'robocup': 'https://github.com/First-Order-RoboCup-SSL/Utama-Core',
-  'isaac-sim': 'https://github.com/Ice-Citron/Project-Automaton',
-  'railgun': 'https://github.com/Ice-Citron/Project-Railgun',
-  'f1-in-schools': 'https://github.com/Ice-Citron/anduril',
-  'display-spinner': 'https://github.com/Ice-Citron/DT-Coursework',
-};
-
 const GitHubButton = ({ url }) => (
   <a
     href={url}
@@ -352,9 +326,9 @@ export default function ProjectDetail() {  // Changed name to match your file
             {frontMatter.summary}
           </p>
         )}
-        {GITHUB_REPOS[slug] && (
+        {frontMatter.github && (
           <div style={{ marginTop: '0.5rem', marginBottom: '0.5rem' }}>
-            <GitHubButton url={GITHUB_REPOS[slug]} />
+            <GitHubButton url={frontMatter.github} />
           </div>
         )}
       </div>
