@@ -14,9 +14,6 @@ const ProjectGrid = ({ category }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Map tab IDs to content folder names
-  const contentFolder = category === "computing" ? "computer-science" : category;
-
   useEffect(() => {
     async function loadData() {
       setLoading(true);
@@ -25,7 +22,7 @@ const ProjectGrid = ({ category }) => {
       try {
         // 1) Fetch and parse the category's index.md
         const cacheBust = `?v=${Date.now()}`;
-        const indexPath = `/content/portfolio/${contentFolder}/index.md${cacheBust}`;
+        const indexPath = `/content/portfolio/${category}/index.md${cacheBust}`;
         const indexResp = await fetch(indexPath);
         if (!indexResp.ok) {
           throw new Error(`Failed to fetch index.md: ${indexResp.status}`);
@@ -87,14 +84,9 @@ const ProjectGrid = ({ category }) => {
     }
 
     loadData();
-  }, [contentFolder]);
+  }, [category]);
 
-  // 1) If "mit-portfolio", show the MIT maker portfolio video
-  if (category === "mit-portfolio") {
-    return <VideoSummary />;
-  }
-
-  // 2) If "resume", show embedded PDF
+  // If "resume", show embedded PDF
   if (category === "resume") {
     const pdfPath = "/assets/Shi-Hao-Ng__Resume.pdf";
     const isMobile = typeof window !== "undefined" &&
@@ -151,6 +143,7 @@ const ProjectGrid = ({ category }) => {
 
   return (
     <div className="p-4">
+      {category === "foundations" && <VideoSummary />}
       {/* Render each subsection */}
       {subsections.map((sub, idx) => (
         <div className="subsection-block" key={idx}>

@@ -1,0 +1,71 @@
+---
+github: "https://github.com/Ice-Citron/IBM-Z-Datathon"
+---
+# Introduction
+
+At the **IBM Datathon Z** (2025), I led a team of 5 to build a full **agentic RLAIF pipeline** for legal AI assistance in 24 hours. We went from knowing only the theory about RLAIF/GRPO/RAG to having a fully working system by the end of the event.
+
+We fine-tuned **Qwen3-14B-Instruct** via GRPO with Gemini 2.5 Flash as an LLM-as-judge, using **LoRA** on an **H100 SXM5**.
+
+<DocumentLink
+  href="https://github.com/Ice-Citron/IBM-Z-Datathon"
+  title="GitHub Repository"
+  description="Source code for the RLAIF Legal LLM project"
+  icon="💻"
+/>
+
+---
+
+# Video
+
+<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "1rem"}}>
+  <iframe
+    src="https://www.youtube.com/embed/VdRrR-3tqBI"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="IBM Datathon Z — RLAIF Legal LLM"
+  />
+</div>
+
+---
+
+# Event Photos & Presentation
+
+<MyCarousel
+  slides={[
+    { src: "/content/portfolio/software-systems/projects/ibm-datathon/images/venue-google-developer-space.jpg", caption: "Google Developer Space — IBM Datathon Z venue with Android mascots" },
+    { src: "/content/portfolio/software-systems/projects/ibm-datathon/images/slide-synthetic-data-pipeline.jpg", caption: "Our synthetic data generation pipeline — seed questions, candidate generation with Gemini 2.5 Pro, aggressive filtering with Gemini 2.5 Flash" },
+    { src: "/content/portfolio/software-systems/projects/ibm-datathon/images/slide-reward-system.jpg", caption: "GRPO reward band system — correct answer, 'I don't know', wrong answer, and formatting error bands" },
+    { src: "/content/portfolio/software-systems/projects/ibm-datathon/images/slide-training-results.jpg", caption: "RL training results — comparing Qwen3-14B (with RL) vs OpenAI o3 vs Gemini models" },
+    { src: "/content/portfolio/software-systems/projects/ibm-datathon/images/slide-sft-vs-rl.jpg", caption: "Key insight — 'SFT Memorizes, RL Generalizes' research supporting our approach" },
+  ]}
+  width={900}
+  height={600}
+/>
+
+---
+
+# The Pipeline
+
+**RLAIF (Reinforcement Learning from AI Feedback)** pipeline:
+
+1. **Synthetic Data Generation** — Generated QA datasets from FOSS (Free and Open Source Software) law cases using Gemini 2.5 Pro
+2. **RAG Database** — Built a retrieval-augmented generation system with tool-use, mimicking real-world lawyer case-retrieval workflows
+3. **Fine-tuning** — Applied GRPO (Group Relative Policy Optimization) with LoRA adapters on Qwen3-14B-Instruct
+4. **Evaluation** — Gemini 2.5 Flash served as LLM-as-judge for scoring model outputs
+
+The goal was to create **affordable legal assistance** by training an open-source model to handle legal queries with case retrieval capabilities.
+
+<br></br>
+<br></br>
+
+---
+
+# Skills Developed
+
+- RLAIF and GRPO fine-tuning pipelines
+- LoRA adapter training on H100 SXM5
+- RAG system architecture with tool-use
+- Synthetic dataset generation at scale
+- Hackathon team leadership
+- Rapid prototyping under time pressure

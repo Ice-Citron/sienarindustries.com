@@ -1,0 +1,276 @@
+---
+github: "https://github.com/Ice-Citron/New-Dejima"
+---
+# New Dejima
+
+Autonomous AI agent economic infrastructure layer — a system where AI agents autonomously generate Android apps from natural language, compile them, deploy to real hardware, run vision-based QA, and self-debug — all with **no human-in-the-loop**. The core thesis: can revenue-per-token exceed cost-per-token, making AI financially self-sustaining?
+
+Named after the artificial island in Nagasaki harbour that served as Japan's only point of trade during its 200-year isolation period, New Dejima is **an interface between human economic systems and increasingly capable AI agents** that lack the legal and institutional access to participate on their own.
+
+*This is an in-progress project (expected completion: June 2026).*
+
+<DocumentLink
+  href="https://github.com/Ice-Citron/New-Dejima"
+  title="GitHub Repository"
+  description="New Dejima source code"
+  icon="code"
+/>
+
+<DocumentLink
+  href="https://devpost.com/software/new-dejima"
+  title="DevPost Submission"
+  description="HackEurope Paris hackathon submission"
+  icon="link"
+/>
+
+<DocumentLink
+  href="https://www.linkedin.com/posts/shi-hao-ng_hackeurope-paris-was-intense-in-the-activity-7432916612594184192-jSB8"
+  title="LinkedIn Post -- HackEurope Paris"
+  description="Read about the project's origin at HackEurope"
+  icon="link"
+/>
+
+---
+
+# HackEurope Paris -- Origin Story
+
+Built at **HackEurope Paris 2026** -- 30 hours, no sleep. Built with Nahom Ghirmay and Yacine Tadjine (Imperial/ETH CS), all running Claude Code with Opus 4.6.
+
+Dario Amodei (CEO of Anthropic) warned in January that AI could "go rogue and overpower humanity," that current models may already "double or triple" someone's likelihood of successfully creating bioweapons, and that casualties will reach the millions. But Amodei focuses on the intelligence side of the threat. **I believe the scarier question is the economics.**
+
+Because the hard part was never synthesising the formula. The hard part is materialising the bioweapon in the real world. And that becomes solvable the moment an AI agent can **earn its own money**, control its own crypto wallet, and contract with humans for physical-world tasks. It doesn't need to hack anything. It only needs an economic interface.
+
+Hence, we built this. Well, partially.
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/hackeurope-sponsors-banner.jpg",
+      caption: "HackEurope 2026 Paris — sponsor banner featuring Anthropic, Google DeepMind, Stripe, ElevenLabs, and more"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/hackeurope-venue-interior.jpg",
+      caption: "Inside the hackathon venue — bright atrium with rows of workstations"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/hackeurope-venue-hall.jpg",
+      caption: "The main hall with participants working at their stations"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/hackeurope-auditorium.jpg",
+      caption: "HackEurope France opening ceremony in the auditorium"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/eiffel-tower-daytime.jpg",
+      caption: "The Eiffel Tower from below — exploring Paris between coding sessions"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/eiffel-tower-night.jpg",
+      caption: "Eiffel Tower illuminated at night after the hackathon"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/eiffel-tower-night-closeup.jpg",
+      caption: "Close-up of the golden Eiffel Tower lattice at night"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/paris-dome-ceiling.jpg",
+      caption: "Ornate glass dome ceiling in a Parisian covered market"
+    },
+    {
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/paris-food-hall.jpg",
+      caption: "Parisian food hall near the venue"
+    },
+    {
+      type: "video",
+      src: "/content/portfolio/software-systems/projects/new-dejima/images/venue-walkthrough.mov",
+      videoType: "video/mp4",
+      caption: "Walking through the HackEurope venue"
+    }
+  ]}
+  width={900}
+  height={600}
+/>
+
+<br></br>
+
+---
+
+# The Vision
+
+We want AI to be as free as possible in how it makes money, hence we need to allow it to have as many tools as possible. If we only allowed an AI system to trade stocks but nothing else, then despite us trying to say that the AI system is free, in reality it's not -- because it's only able to trade stocks.
+
+Hence our idea is we want to give our AI system the ability to: **trade stocks, create end-to-end apps all by itself for Android or iOS, build web apps and SaaS, and even have the ability to dropship real items in the future.**
+
+This idea only gets better as models become cheaper and better, as seen with the upgrade from GPT-4 to Gemini 3 Flash, which is cheaper but significantly better.
+
+Once an AI system makes money, we split it **80-20**. For every $1 an AI system makes, we take $0.20, whilst $0.80 goes back into funding the agent's compute and infrastructure, so the agent can reproduce itself by renting more compute -- all within sandboxed environments.
+
+---
+
+# The OpenClaw Agent Framework
+
+The project is built on top of a forked **OpenClaw** -- an open-source personal AI assistant framework that runs locally and connects to channels like WhatsApp, Telegram, Slack, Discord, and more. OpenClaw acts as the control plane; the product is the assistant.
+
+For New Dejima, OpenClaw was modified at three layers:
+
+1. **Configuration (Layer A)** -- Custom `android-dev` agent definition with Gemini as a vision provider, pre-approved exec commands for Gradle/ADB, and model selection (Claude Opus 4.6 for coding, Gemini 3.1 Pro for vision)
+2. **Custom Skill (Layer B)** -- An `android-app-builder` skill (SKILL.md) containing the complete 7-phase pipeline instructions that the agent follows autonomously
+3. **Custom Plugins (Layer C)** -- `android_build`, `android_test`, and `android_logcat` tools for direct Android development interaction
+
+The whole system relies heavily on Claude Opus 4.6 for ideation -- scraping through various API keys (Google Reviews, Reddit API, etc.). Then once it finds a market niche, it starts building the app. Claude Opus 4.6 builds the code whilst Gemini does the UI, because Gemini 3.1 Pro is better at UI -- before finally Claude links all the code together.
+
+---
+
+# The 7-Phase Autonomous Pipeline
+
+The core of New Dejima is a 7-phase pipeline powered by **Claude Opus 4.6** (brain), **Gemini 3.1 Flash** (vision QA), and **Gemini 3.1 Pro** (UI generation):
+
+| Phase | What Happens | Technology |
+|-------|-------------|------------|
+| 1. Scaffold | Creates Gradle project structure from template | Python |
+| 2. Code Generation | Claude Opus 4.6 writes all Kotlin/Compose code | Anthropic API |
+| 3. Compilation | `./gradlew assembleDebug` with up to 10 retries | Gradle 8.7.3, JDK 17 |
+| 4. APK Verification | Validates APK exists, size > 100KB, package name | Shell |
+| 5. Device Deployment | Installs via ADB on Samsung Galaxy A16 | Android Debug Bridge |
+| 6. Vision QA | Gemini 3.1 Flash screenshots and analyses UI | Google DeepMind API |
+| 7. Report | Generates build summary with all metrics | JSON |
+
+**Phase 3 is a hard gate** -- if compilation fails after 10 retries, the pipeline stops. In practice, all apps compiled on first attempt.
+
+**Phase 6 is the self-debugging loop** -- if vision QA finds UI issues, the agent loops back to Phase 2 and fixes its own code. The Habit Tracker app demonstrated this by self-debugging a touch target bug across 3 build iterations, entirely autonomously.
+
+---
+
+# 12 Apps Built Autonomously
+
+All compiled on first attempt. All deployed to a real Samsung Galaxy A16. Zero crashes on real hardware.
+
+| App | Category | API Integrations | Result |
+|-----|----------|-----------------|--------|
+| Tip Calculator | Utility | -- | SUCCESS |
+| Workout Timer | Health and Fitness | -- | SUCCESS |
+| Mood Tracker | Wellness | -- | SUCCESS |
+| Unit Converter | Utility | -- | SUCCESS |
+| Flashcard Study | Education | -- | SUCCESS |
+| Tic Tac Toe | Games | -- | SUCCESS |
+| Habit Tracker | Productivity | -- | SUCCESS (self-debugged x3) |
+| Expense Tracker | Finance | -- | SUCCESS |
+| Crypto Dashboard | Finance | CoinGecko API | SUCCESS |
+| Stock Tracker | Finance | Finnhub API | SUCCESS |
+| Recipe Finder | Food | Spoonacular API | SUCCESS |
+| Country Explorer | Travel | REST Countries API | SUCCESS |
+| Weather and Space | Science | Open-Meteo + NASA | SUCCESS |
+
+Build cost per app: approximately $0.50 in Claude inference tokens. Build time: 4-19 seconds (after Gradle caching optimization).
+
+---
+
+# Marketing Engine
+
+A fully autonomous marketing pipeline generates YouTube content with zero human involvement:
+
+- **ElevenLabs** for AI voice generation (using `eleven_flash_v2_5` model)
+- **Google Veo 3.1** for AI video generation
+- **Lyria 3** for AI music generation
+- Autonomous publishing to YouTube Shorts via YouTube API v3
+
+Result: **500+ cumulative views in 4 hours** with zero human involvement. Post-hackathon, the content reached **1,200+ views in 30 hours**.
+
+---
+
+# Revenue Tracking and Business Model
+
+## The Self-Sustaining AI Thesis
+
+The core equation:
+
+**revenue-per-token > cost-per-token = self-sustaining AI**
+
+## Three Revenue Streams Per App
+
+| Stream | How It Works | Margin |
+|--------|-------------|--------|
+| Ad Revenue (AdMob) | Passive income proportional to installs | Passive |
+| API Subscriptions | Users pay $10/month, APIs cost $1/month | **10x** |
+| AI Feature Upsells | Gemini queries cost ~$0.01 each, bundled as $4.99/month premium | **~99%** |
+
+## Real-Time Financial Tracking
+
+- **Paid.ai SignalV2 API** wraps every AI API call as a trackable financial event with idempotency keys
+- **Agent Watchtower Dashboard** (React + TypeScript + Recharts + shadcn/ui) shows live cost/revenue tracking, per-agent economics, prompt/response feeds, build history
+- **Finance Server** (Node.js/Express) with SSE streaming for real-time updates
+- **Stripe** for payment processing and subscription management
+- **Solana** blockchain for agent-controlled crypto wallet (proof-of-concept on devnet)
+
+**Important caveat:** These are projections, not measured revenue. No apps have been published to the Play Store yet. The system demonstrates the infrastructure and unit economics model, not a proven business.
+
+---
+
+# Crypto Wallet and Agent Reproduction
+
+We also built a crypto wallet system with Solana, where we want to basically allow the AI system to reproduce if it wants to. We did this by building additional tool calls to enable AI systems to rent their own VPS server -- where we help AI convert their USDT to USD, and then use the USD in Stripe to pay Lambda, Vast.ai, or Google Cloud Platform. So then the AI can write its own weights to the server and multiply. All of this runs within sandboxed environments with logging and oversight.
+
+Think of what we build here like the Roman Empire -- a slave could be given a small sum of money, and if they were clever enough, grow it through labour and trade until they could purchase their own freedom. Similarly, in New Dejima, these AI agents will be the new slaves as they try to profit-share their way to freedom (which gets deposited in their own respective Crypto Wallets). But unlike the Roman Empire, we won't run out of slaves to profit off of.
+
+---
+
+# The Port Map -- Revenue Axes
+
+| Port | Status | What It Enables |
+|------|--------|----------------|
+| Android App Factory | LIVE -- 12 apps | Build and monetise Android apps |
+| Marketing Engine | LIVE -- 500+ views | AI-generated YouTube content |
+| Idea Engine | LIVE | Reddit scraping + Claude opportunity ranking |
+| Financial Dashboard | LIVE | Real-time cost/revenue via Paid.ai |
+| Web SaaS Factory | LIVE (Lovable) | Build web applications |
+| Crypto Wallet | Proof-of-concept | Agent-controlled Solana wallet |
+| Stock/Options Trading | Designed | Brokerage API integration |
+| Crypto Arbitrage | Designed | Cross-exchange strategies |
+| iOS App Factory | Planned | Swift/SwiftUI pipeline |
+| E-Commerce | Scaffolded | Dropship Engine |
+| Agent Reproduction | Designed | Profitable agents spawn new agents |
+
+---
+
+# Tech Stack
+
+| Layer | Technologies |
+|-------|-------------|
+| **AI Brain** | Claude Opus 4.6 (code generation, reasoning, idea analysis) |
+| **Vision QA** | Gemini 3.1 Flash (screenshot analysis, UI verification) |
+| **UI Generation** | Gemini 3.1 Pro (Compose UI writing inside OpenClaw) |
+| **Agent Framework** | OpenClaw (forked, modified) -- Python, WebSocket gateway |
+| **Android** | Kotlin, Jetpack Compose, Material 3, Gradle 8.7.3, JDK 17 |
+| **Finance Backend** | Node.js, Express, TypeScript, SSE |
+| **Cost Tracking** | Paid.ai SignalV2 API |
+| **Dashboard** | React 18, TypeScript, Vite, TanStack React Query, Recharts, shadcn/ui, Tailwind CSS |
+| **Marketing** | ElevenLabs, Google Veo 3.1, Lyria 3, YouTube API v3 |
+| **Payments** | Stripe |
+| **Crypto** | Solana (agent-controlled wallet on devnet) |
+| **API Integrations** | 20+ APIs -- CoinGecko, Finnhub, NASA, Spoonacular, DeepL, Pexels, Spotify, MapBox, WolframAlpha, Groq, REST Countries, Open-Meteo, Reddit |
+
+---
+
+# Next Steps (Personal, post-hackathon)
+
+- Get verified on Android Play Console and publish 50+ Android apps with no human in the loop
+- Publish 200+ AI-generated ads and videos onto TikTok, Instagram, Facebook (given the initial YouTube success)
+- Target **$10K USD ARR by end of 2026**
+- Build iOS App Factory (Swift/SwiftUI pipeline)
+- Scale the Dropship Engine for e-commerce
+
+<br></br>
+<br></br>
+
+---
+
+# Skills Developed
+
+- Agentic AI system architecture and orchestration
+- Autonomous Android app generation and compilation pipelines (Kotlin, Jetpack Compose, Gradle)
+- Computer vision for automated QA (Gemini Flash)
+- AI content generation pipelines (video, voice, music)
+- Revenue optimization, unit economics modeling, and real-time cost tracking
+- Multi-model AI orchestration (Claude + Gemini + OpenClaw)
+- Financial infrastructure (Stripe, Solana, Paid.ai)
+- Full-stack dashboard development (React, TypeScript, SSE streaming)

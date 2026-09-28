@@ -1,0 +1,293 @@
+---
+github: "https://github.com/Ice-Citron/anduril"
+---
+# Introduction
+
+I led Team Anduril to compete for my school (MCM)'s inaugural year in F1 in Schools. This made things extra challenging because we didn't have much preliminary experience going into this. On top of this, we also had to juggle IB deadlines which are very tight, leading to lots of teamwork issues and disputes. These got resolved in the end though, and it definitely made me a better leader.
+
+As the team's CFD engineer and car designer, I was responsible for designing the car in Blender, optimizing aerodynamics in Ansys Fluent, and coordinating the manufacturing process. I also led the effort to build our own 20-meter track system, saving the school significant costs compared to purchasing the official Denford track.
+
+**Related Documentation:**
+
+<PDFViewer url="/content/portfolio/hardware-fabrication/projects/f1-in-schools/T10_ANDURIL_PORTFOLIO.pdf" />
+
+<DocumentLink
+  href="https://andurilracing.com"
+  title="Team Anduril Website"
+  description="Our official team website showcasing our achievements"
+  icon="🌐"
+/>
+
+---
+
+# Car Design
+
+## Blender Modeling
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Car Design/img1.jpg",
+      caption: "Car design in Blender viewport"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Car Design/img2.jpg",
+      caption: "Design iteration"
+    }
+  ]}
+  width={900}
+  height={450}
+/>
+
+The first 2 design iterations of Anduril's car were made by Samson Hong. However, version-3, version-4, and version-5 were all modelled by me and subsequently optimised inside Ansys Fluent.
+
+This screenshot contains my Blender viewport, which on the very right hand side, a wireframe box can be seen with a red object. These are the no-go zones and the model blocks which I have to factor in whilst modelling the car. I want to emphasize how difficult it was to design a new iteration of cars in F1 in Schools. Because if the no-go zone is breached, very heavy penalty will be incurred.
+
+Unfortunately, despite my best efforts, we still failed on certain criterions in the end, and faced penalties.
+
+<br></br>
+<br></br>
+
+---
+
+# CFD Analysis
+
+## Ansys Fluent Optimization
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/CFD Analysis/img1.jpg",
+      caption: "CFD analysis in Ansys Fluent"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/CFD Analysis/img2.jpg",
+      caption: "Final car CFD results"
+    }
+  ]}
+  width={900}
+  height={450}
+/>
+
+As Anduril's CFD engineer, I'm responsible for analysing our car's aerodynamics performance.
+
+Ironically though, we spent far too much time optimising our car inside Ansys Fluent and Blender as we wanted our car's aerodynamics to be absolutely perfect. But what ended up happening is that, because when racing, this car is powered by a CO2 pierced gas canister which accelerates it to 90 km/h in 1.0 seconds - for like 70% of the race, aerodynamics was simply insignificant. Hence our finalised car, despite being CFD optimised, ultimately didn't have much of an edge.
+
+Even worse, we neglected factors like weight reduction, which caused our car to be 20 grams overweight over the minimum of 60 grams. And worst, we forgot to lubricate our car's wheel axle last minute.
+
+But these experiences are still very useful overall. Because as MCM's inaugural team competing in F1 in Schools, these lessons learned are what's needed for all future MCM teams to excel. And this also showed me first-hand, the saying of "theory can only get you so far".
+
+<br></br>
+
+## Final Car CFD
+
+The final car's CFD was significantly better than the initial versions. I made sure to implement multiple techniques to ensure that low pressure zones and recirculation zones are absolutely reduced. By introducing vanes and taking inspiration from McLaren Speedtail's design.
+
+<br></br>
+<br></br>
+
+---
+
+# Manufacturing
+
+## G-code Programming with Mastercam
+
+Before sending off my car to be manufactured, I programmed the G-Code inside MasterCam using the STEP file of my final optimized car design inside. Once the G-Code simulation was successful, I sent off the file and materials to a local CNC shop.
+
+## CNC Manufacturing
+
+I sent over my G-code once ready to my CNC supplier at Larkin, Perling, Johor, Malaysia.
+
+The car has to be CNC'd out of the standard polystyrene model blocks as dictated by the technical regulation. This was a very big headache initially because it meant we had to purchase model blocks directly from Denford, as well as learn CNC manufacturing.
+
+Looking back though, this is a great blessing. Because now I have the ability to make custom metal parts which will be needed when I want to create my own Nuclear Fusion reactor in the future.
+
+<br></br>
+<br></br>
+
+---
+
+# Track Building
+
+## 20 Meter Track System
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Track Building/img1.jpg",
+      caption: "Track construction in progress"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Track Building/img2.jpg",
+      caption: "Completed track system"
+    }
+  ]}
+  width={900}
+  height={450}
+/>
+
+One of my proudest achievements from F1 in Schools is building this 20 meter track system. Normally, schools would purchase the official track system from Denford. But the significant issue is that the official track system costs an unreasonable 50,000+ MYR. Because most of the price tag is spent on proprietary rights of logos, like F1's logo for example. And it's especially outrageous when we realise that the actual track itself is literally mostly just wood tables joined together.
+
+Hence, I led us to build our own track!
+
+However, lots of time was spent building this track, which added onto our teamwork issues. Because all members had to also suffer from IB deadlines on top of all our co-curriculars.
+
+But this is definitely a significant addition in the end. Because with this track built, future MCM teams can now easily test their cars to optimise them, on top of optimising using CFD in Ansys Fluent.
+
+I'm very proud that I can make MCM a better STEM school in the end.
+
+<br></br>
+
+## Manufacturing Track Hinges
+
+I used a Makita angle grinder to quickly cut some metal L-joints. Because at the time, I quickly required flat steel hinges to hold my 20-m track system together (as the 20m track is made out of 10x 2m track sections).
+
+I did this because the timeline was very tight at the time due to IB deadlines. And I also wasn't content on sitting around and waiting for another 3 days before hinges get shipped to my front door. So I took action right then and there.
+
+<br></br>
+<br></br>
+
+---
+
+# Sponsorship
+
+## Gold Sponsors
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Sponsorship/img1.jpg",
+      caption: "With University of Southampton Malaysia"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Sponsorship/img2.jpg",
+      caption: "Sponsorship event"
+    }
+  ]}
+  width={900}
+  height={450}
+/>
+
+For F1 in Schools, you not only win by having the fastest car that complies with the regulations - you also need to, like actual F1 teams, find sponsorship to fund your venture.
+
+One of our sponsors was the University of Southampton Malaysia. Professor Azam Bakir greatly helped us in our venture by teaching us how to use Ansys Fluent, and teaching me how to use LS-Dyna as well.
+
+The University of Reading Malaysia also significantly helped us in resolving teamwork issues which had plagued us.
+
+With the help of our sponsors, we created a sponsorship brochure which helped us secure 6,000 MYR in funding ultimately.
+
+<br></br>
+
+## Banner Display
+
+Since F1 in Schools' regulations give significant point rewards for sponsorship, one of our perks for our sponsors was free advertisement. We printed a huge 20-feet banner (designed by Louis Gan) and displayed it in one of MCM's most crowded area, the Learning Enrichment Center.
+
+Not only did we get to advertise our sponsor's logo, we were also able to promote MCM's STEM presence to visiting parents.
+
+<br></br>
+<br></br>
+
+---
+
+# Competition Day
+
+## Pit Display
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Competition/img1.jpg",
+      caption: "Team Anduril's Pit Display"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Competition/img2.jpg",
+      caption: "Competition day"
+    }
+  ]}
+  width={900}
+  height={450}
+/>
+
+During state-finals day, F1 teams are required to display all of their work in a "Pit Display" within 1 square meter.
+
+The banners showcasing our achievements were proudly designed by Louis Gan and Jolie Teo.
+
+The whole pit display was actually powered by lithium batteries charged by solar panels displaying in the image. "Anduril Green", our environmentally friendly initiative, was ardent on showing off what we've done.
+
+<br></br>
+
+## Racing
+
+To race in F1 in Schools, lights will be shown on the monitor, and a designated racer will press a button as quick as possible after green light is shown. Teams with fast reaction times are rewarded. Though, pressing it too early gets you disqualified for that race instantaneously, incurring HEAVY penalty.
+
+Heng Jun was designated as our racer that day. Because he has a bad rep for gaming Valorant - which meant he has insane reaction time!
+
+<br></br>
+<br></br>
+
+---
+
+# Renders
+
+## Photorealistic Blender Renders
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Renders/cyberstation.jpg",
+      caption: "Cyberstation render"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/f1-in-schools/images/Renders/darkstar.jpg",
+      caption: "Dark Star render"
+    }
+  ]}
+  width={900}
+  height={450}
+/>
+
+These are photorealistic renders of the F1 in Schools race-car for Team Anduril's Johor State-Finals competition.
+
+I was responsible for the modelling, objects and texturing. The decal of the car was designed by Louis Gan. The lighting and atmosphere were done by Samson Hong.
+
+<br></br>
+<br></br>
+
+---
+
+# Lessons Learned
+
+Despite our challenges - being 20 grams overweight, forgetting to lubricate the wheel axle, and facing penalties for regulation non-compliance - this experience taught me invaluable lessons:
+
+1. **Theory can only get you so far** - We spent too much time on CFD optimization when practical factors like weight and lubrication mattered more during the actual race.
+
+2. **Leadership under pressure** - Managing IB deadlines while leading a team through disputes made me a better leader.
+
+3. **Legacy building** - As MCM's inaugural team, the lessons we learned and infrastructure we built (like the 20m track) will benefit future teams.
+
+4. **Sponsor relations** - Learning to pitch, negotiate, and deliver value to sponsors was real-world business experience.
+
+<br></br>
+
+**Additional Documentation:**
+
+<DocumentLink
+  href="/content/portfolio/hardware-fabrication/projects/f1-in-schools/technical-regulations.pdf"
+  title="F1 in Schools Technical Regulations"
+  description="The official technical regulations we had to comply with"
+  icon="📋"
+/>
+
+<DocumentLink
+  href="/content/portfolio/hardware-fabrication/projects/f1-in-schools/competition-regulations.pdf"
+  title="F1 in Schools Competition Regulations"
+  description="Scoring rubric and competition rules"
+  icon="📋"
+/>
+
+<DocumentLink
+  href="/content/portfolio/hardware-fabrication/projects/f1-in-schools/ANDÚRIL Brochure.pdf"
+  title="Team Anduril Sponsorship Brochure"
+  description="Our brochure that helped secure 6,000 MYR in funding"
+  icon="📄"
+/>

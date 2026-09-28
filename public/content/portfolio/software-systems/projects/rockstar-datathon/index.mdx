@@ -1,0 +1,60 @@
+---
+github: "https://github.com/Ice-Citron/Rockstar-GTAV-Datathon"
+---
+# Introduction
+
+Participated in the **Rockstar Inc. Datathon** on **28 October 2025**, analyzing Grand Theft Auto V (GTA V) player data to uncover insights into player behavior, spending patterns, and activity trends.
+
+<DocumentLink
+  href="https://github.com/Ice-Citron/Rockstar-GTAV-Datathon"
+  title="GitHub Repository"
+  description="Source code and analysis notebook for the Rockstar GTA V Datathon"
+  icon="💻"
+/>
+
+---
+
+# Analysis and Approach
+
+The analysis used three primary datasets provided by Rockstar:
+- **player_statistics.csv** — Player performance metrics and statistics
+- **item_spend.csv** — In-game purchase transactions and spending data
+- **player_activity.csv** — Player engagement and activity logs
+
+**Analysis Components:**
+
+1. **Data Integration and Preprocessing** — Merged multiple datasets on account_id, platform_id, and occur_date. Performed duplicate detection, missing value analysis, and date standardization.
+
+2. **Spending Pattern Analysis** — Aggregated daily spending per player, analyzed item purchase frequency and distribution, and examined spending behavior across different player segments.
+
+3. **Principal Component Analysis (PCA)** — Applied dimensionality reduction for pattern discovery, performed comparative analysis between missing and non-missing data subsets, and identified key features driving player behavior variance.
+
+4. **Missing Data Investigation** — Systematic analysis of missing values in item_spend data, pattern identification in data completeness, and impact assessment on overall analysis.
+
+**Technologies:** Python, pandas, numpy, matplotlib, seaborn, scikit-learn, Jupyter Notebook.
+
+<MyCarousel
+  images={[
+    { src: "/content/portfolio/software-systems/projects/rockstar-datathon/images/photo1.JPG", caption: "Rockstar GTA V Datathon 2025" },
+    { src: "/content/portfolio/software-systems/projects/rockstar-datathon/images/photo2.JPG", caption: "Rockstar GTA V Datathon 2025" },
+    { src: "/content/portfolio/software-systems/projects/rockstar-datathon/images/photo3.JPG", caption: "Rockstar GTA V Datathon 2025" },
+    { src: "/content/portfolio/software-systems/projects/rockstar-datathon/images/photo4.JPG", caption: "Rockstar GTA V Datathon 2025" },
+    { src: "/content/portfolio/software-systems/projects/rockstar-datathon/images/photo5.JPG", caption: "Rockstar GTA V Datathon 2025" },
+    { src: "/content/portfolio/software-systems/projects/rockstar-datathon/images/photo6.JPG", caption: "Rockstar GTA V Datathon 2025" }
+  ]}
+/>
+
+<br></br>
+<br></br>
+
+---
+
+# Skills Developed
+
+- Exploratory data analysis on large player datasets
+- Data integration and preprocessing across multiple sources
+- Principal Component Analysis (PCA) for dimensionality reduction
+- Missing data analysis and imputation strategies
+- Data visualization with matplotlib and seaborn
+- Player behavior and spending pattern analysis
+- Rapid analysis under datathon time constraints

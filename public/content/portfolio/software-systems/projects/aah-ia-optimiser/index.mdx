@@ -1,0 +1,52 @@
+# AAH IA Optimiser
+
+A comparative study of first-order and second-order optimizers for training large-scale AI models. IB Math Analysis and Approaches HL Internal Assessment — scored 18/20 internally, 13/20 after external moderation.
+
+---
+
+<DocumentLink
+  href="https://github.com/Ice-Citron/AAH-IA"
+  title="GitHub Repository"
+  description="AAH IA Optimiser source code — benchmark functions, Matplotlib visualisations"
+  icon="code"
+/>
+
+<DocumentLink
+  href="/content/portfolio/software-systems/projects/aah-ia-optimiser/aah-ia-optimiser.pdf"
+  title="Full IA Paper (PDF)"
+  description="30-page exploration — Gradient Descent vs Newton-Raphson, empirical benchmarks, Mann-Whitney statistical tests"
+  icon="pdf"
+/>
+
+---
+
+# Overview
+
+This exploration compares **Gradient Descent** (first-order) and **Newton-Raphson** (second-order) optimizers across multiple benchmark functions (Rosenbrock, Rastrigin, Three-Hump Camel, Booth, Sphere) in varying dimensions, then tests them on a real **neural network training** task.
+
+Key findings:
+- **Gradient Descent** scales as O(n) per iteration, making it practical for high-dimensional AI training
+- **Newton-Raphson** scales as O(n^3) due to Hessian inversion, becoming infeasible beyond ~50 dimensions
+- Newton-Raphson converges in fewer iterations on smooth, low-dimensional functions but suffers catastrophic NaN failures in higher dimensions
+- Mann-Whitney U tests confirm statistically significant runtime differences (p < 0.05)
+- In real neural network training, Gradient Descent successfully trained the model while Newton-Raphson was computationally prohibitive
+
+---
+
+# Topics Covered
+
+- **Calculus**: Partial derivatives, gradients, Hessian matrices, Jacobians
+- **Linear Algebra**: Matrix inversion, eigenvalues, positive-definiteness
+- **Numerical Methods**: Iterative optimisation, convergence criteria, learning rates
+- **Statistics**: Mann-Whitney U test, hypothesis testing, p-values
+- **Computer Science**: Big O complexity analysis, Python/NumPy implementation, Matplotlib visualisation
+
+---
+
+# Skills Developed
+
+- Mathematical derivation of optimisation algorithms from first principles
+- Empirical benchmarking methodology with controlled experiments
+- Statistical hypothesis testing for performance comparison
+- Python scientific computing (NumPy, Matplotlib, SciPy)
+- Technical academic writing (30 pages, 15+ references)

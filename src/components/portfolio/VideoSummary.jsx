@@ -8,7 +8,7 @@ export default function VideoSummary() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const resp = await fetch("/content/portfolio/video-summary/index.md");
+        const resp = await fetch("/content/portfolio/foundations/video-summary.md");
         if (!resp.ok) {
           throw new Error(`VideoSummary fetch error: ${resp.status}`);
         }

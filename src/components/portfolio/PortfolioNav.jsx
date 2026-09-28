@@ -3,12 +3,13 @@ import React from 'react';
 const PortfolioNav = ({ activeCategory, onCategoryChange }) => {
     const categories = [
         { id: "resume", label: "Resume" },
-        { id: "computing", label: "Computing" },
-        { id: "engineering", label: "Engineering" },
-        { id: "mit-portfolio", label: "MIT Portfolio" },
-        { id: "academic", label: "Academic" },
-        { id: "electronic-art", label: "Electronic Art" },
-        { id: "miscellaneous", label: "Miscellaneous" },
+        { id: "robotics", label: "Robotics" },
+        { id: "deep-learning", label: "Deep Learning" },
+        { id: "software-systems", label: "Software & Systems" },
+        { id: "hardware-fabrication", label: "Hardware & Fabrication" },
+        { id: "hackathons", label: "Hackathons" },
+        { id: "3d-art", label: "3D Art" },
+        { id: "foundations", label: "Foundations" },
     ];      
 
   return (

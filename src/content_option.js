@@ -1,77 +1,63 @@
 const logotext = "SIENAR INDUSTRIES";
 const meta = {
-    title: "Shi Hao",
-    description: "I'm Shi Hao. AI Czar. Nuclear Fusion Enthusiast",
+    title: "Sienar Industries",
+    description: "Shi Hao Ng: Computing student at Imperial College London working on robotics and frontier AI",
 };
 
 const introdata = {
     title: "I'm Shi Hao",
     animated: {
-        first: "I love Nuclear Fusion",
-        second: "I am the machine herald",
-        third: "I love r/Singularity",
+        first: "I build and evaluate robot policies",
+        second: "I write C++, PyTorch and occasionally build railguns",
+        third: "I fly FPV drones",
     },
-    description: "This portfolio is a work in progress — some project thumbnails may be placeholders or mismatched while I sort through photos. Content is current as of March 2026. Stay tuned for updates!",
-    your_img_url: "/assets/images/IMG_4109.JPG",
+    description: "September 2026: most of my updated recent works are on GitHub rather than here, as I've spent the last month cleaning up and publishing repos. For now, this website is outdated and is a work-in-progress till October. Until then, github.com/Ice-Citron is the most recent picture.",
+    your_img_url: "/assets/images/Union_Square.JPG",
 };
 
 const dataabout = {
     title: "About Me",
-    aboutme: `I'm a first-year MEng Computing (AI/ML) student at Imperial College London with a passion for building at the intersection of software and hardware. Currently leading Imperial College Drone Society as co-President, and working as AI Engineer in FO Robotics.
+    aboutme: `I'm a second-year Computing student at Imperial College London. I just finished a summer as a Robotics & Machine Learning intern at Vikaso Robotics, where I built their first camera-to-robot calibration pipeline for a UR5e and RealSense setup, a configurable perception stack (three segmentation and four 6D pose models behind one interface), and a benchmark harness that reproduced each model's published BOP results across ten datasets.
 
-I have a background in low-level game engine programming with C/C++ and OpenGL, full-stack web development (ReactJS, Firebase, Node.js, TS), pre-training GPT-2 transformers from scratch in PyTorch with C/CUDA on H100 clusters, RAG systems and agentic workflows, RLAIF + GRPO + LLM-as-a-judge + LoRA SFT techniques; building augmented railguns (muzzle velocity: 165 km/h) with high-voltage electronics (450V capacitor banks, ZVS transformers), designing and fabricating FPV racing drones (Betaflight, PET-CF frames, 240km/h), aerodynamics and FEA simulation (Ansys Fluent CFD, LS-Dyna electromagnetic), CAD design using Blender, Fusion 360, and SolidWorks with CNC machining and 3D-printing, experience in the glass and steel manufacturing industry (heavy industry) with welding and hot repairs; computer vision with YOLO-v11 fine-tuning, and distributed training pipelines (DDP, Accelerate, etc.); control theory (MPC), etc. (See my project list for more details!)`,
+Before that: a C++/OpenGL game engine, GPT-2 pre-trained from scratch on 4× H100s for my IB extended essay, an augmented railgun that averaged 132 km/h across ten firing trials, an FPV drone I designed and printed myself, and a summer welding inside glass furnaces in Taichung. I like the part of robotics where the software has to survive contact with hardware.`,
     currentProjects: [
         {
-            title: "New Dejima",
-            description: "An autonomous AI agent revenue system built on OpenClaw where AI agents build Android apps, self-market on YouTube Shorts, and track revenue-per-token vs cost-per-token (targeting $10K ARR by end of 2026).",
+            title: "Project Ladder: Coverage-driven evaluation of learned manipulation policies",
+            description: "A paper coming out of the Intrinsic AI for Industry Challenge, where our policy scored 89 on hidden evals versus 141 locally. The gap is the subject: how to know your local tests actually cover the conditions you'll be judged on. Targeting October 2026.",
         },
         {
-            title: "Project Interceptor",
-            description: "Leading the development of a 400km/h interceptor drone with Raspberry Pi-based computer vision for autonomous target tracking and additional autonomous drone-related missions. Powered by NVIDIA Jetson, ROS2 and Ardupilot. Will involve lots of FEA testing from aerodynamic, heat dissipation to structural, to real world testing.",
-        },
-        {
-            title: "Project Automaton",
-            description: "Competing in the NVIDIA x Revel robotics competition and Intrinsic AI Challenge, where I'm training and modifying SO-101 and UR5e robotic arms in Isaac Sim, MuJoCo, and Gazebo for tasks including complex Lego assembly (Revel) and cable management for data center server-rack assembly (Intrinsic). The thesis: If I can have the skill of AI programming to the extent where I can train my robot to be able to assemble something as complex as the Lego Millenium Falcon. If you also consider how most cheap-labour Asian manufacturing assembly jobs aren't much harder than assemblying Lego Millenium Falcons, then they are screwed by my robots.",
+            title: "GT-GAP",
+            description: "Verification and certification infrastructure for learned robotic systems — tooling that produces evidence a third party can defend, not just a demo. Early, and being built with my co-founder Rucha.",
         },
     ],
-    interests: "Currently hugely interested and is exploring in Startups, Frontier AI, Defense Tech and Robotics.",
+    interests: "Startups, frontier AI, defence tech and robotics — specifically the question of how you prove a learned system works.",
 };
 
 const worktimeline = [
     {
+        jobtitle: "Robotics & Machine Learning Intern",
+        where: "Vikaso Robotics 4.0 — Aylesbury",
+        date: "Jul–Sep 2026",
+    },
+    {
         jobtitle: "Re-Founder & Co-President",
         where: "Imperial College Drone Society",
-        date: "Nov 2025–Present",
+        date: "Oct 2025–Apr 2026",
     },
     {
-        jobtitle: "Algorithms and AI Engineer",
-        where: "First Order Robotics (RoboCup)",
-        date: "Oct 2025–Present",
-    },
-    {
-        jobtitle: "Welder (Intern)",
+        jobtitle: "Engineering Intern (Welding & Hot Repair)",
         where: "Nosco Asia — Taiwan Glass, Taichung",
-        date: "Jun 2025",
+        date: "Jun–Jul 2025",
     },
     {
-        jobtitle: "ML Engineer — Recon Drone",
-        where: "Edutech Asia (Google)",
-        date: "Aug–Nov 2024",
-    },
-    {
-        jobtitle: "Team Leader & Chief Engineer",
+        jobtitle: "Team Lead & Technical Lead",
         where: "F1 in Schools — Team Anduril",
-        date: "Feb–Oct 2024",
+        date: "2023–2024",
     },
     {
-        jobtitle: "Full-Stack Developer (Intern)",
-        where: "Nosco Asia — Singapore",
-        date: "Jun–Aug 2024",
-    },
-    {
-        jobtitle: "Founder & Director",
-        where: "Computational Engineering Society — MCM",
-        date: "Nov 2023–May 2025",
+        jobtitle: "Full-Stack Developer (Contract)",
+        where: "Nosco Asia — Singapore (Remote)",
+        date: "May–Aug 2024",
     },
     {
         jobtitle: "Silica Plant Researcher (Intern)",
@@ -86,161 +72,83 @@ const skills = [
         skills: [
             { name: "Python", level: "primary" },
             { name: "C/C++", level: "primary" },
-            { name: "C/CUDA", level: "primary" },
-            { name: "Java" },
+            { name: "TypeScript/JavaScript", level: "primary" },
             { name: "Kotlin" },
-            { name: "JavaScript/TypeScript", level: "primary" },
+            { name: "Java" },
             { name: "Haskell" },
-            { name: "HTML/CSS" },
+            { name: "RISC-V assembly" },
         ],
     },
     {
-        heading: "AI/ML Frameworks",
+        heading: "Machine Learning",
         skills: [
             { name: "PyTorch", level: "primary" },
-            { name: "TensorFlow" },
-            { name: "YOLO-v11", level: "primary" },
-            { name: "HF Transformers", level: "primary" },
-            { name: "RLAIF", level: "primary" },
-            { name: "LoRA", level: "primary" },
-            { name: "GRPO", level: "primary" },
-            { name: "OpenClaw" },
+            { name: "Distributed training (DDP)", level: "primary" },
+            { name: "Hugging Face Transformers", level: "primary" },
+            { name: "LeRobot" },
+            { name: "YOLO" },
+            { name: "SAM" },
+            { name: "Weights & Biases" },
+            { name: "NumPy" },
+            { name: "vLLM" },
+            { name: "llama.cpp" },
         ],
     },
     {
-        heading: "Web Development",
+        heading: "Robotics & Simulation",
         skills: [
-            { name: "ReactJS", level: "primary" },
+            { name: "Universal Robots UR5e", level: "primary" },
+            { name: "6D pose estimation (FoundationPose, MegaPose, SAM-6D)", level: "primary" },
+            { name: "NVIDIA Isaac Sim", level: "primary" },
+            { name: "NVIDIA Isaac Lab" },
+            { name: "MuJoCo (C API)" },
+            { name: "Gazebo" },
+            { name: "ROS 2" },
+            { name: "OpenCV" },
+            { name: "Intel RealSense" },
+        ],
+    },
+    {
+        heading: "Systems & Graphics",
+        skills: [
+            { name: "Linux / CUDA toolchain", level: "primary" },
+            { name: "OpenGL", level: "primary" },
+            { name: "GLFW" },
+            { name: "Git", level: "primary" },
+            { name: "Docker" },
+        ],
+    },
+    {
+        heading: "Web & Cloud",
+        skills: [
+            { name: "React", level: "primary" },
             { name: "Node.js", level: "primary" },
             { name: "Firebase", level: "primary" },
+            { name: "Google Cloud Platform", level: "primary" },
+            { name: "AWS" },
             { name: "Tailwind CSS" },
         ],
     },
     {
-        heading: "Cloud & DevOps",
+        heading: "CAD, FEA & Fabrication",
         skills: [
-            { name: "Google Cloud Platform", level: "primary" },
-            { name: "Git", level: "primary" },
-            { name: "API Development" },
-            { name: "HPC Cluster Management" },
-            { name: "Docker" },
-            { name: "Vast.ai" },
-            { name: "AWS" },
-        ],
-    },
-    {
-        heading: "CAD/FEA Simulation",
-        skills: [
-            { name: "Autodesk Fusion 360", level: "primary" },
+            { name: "Fusion 360", level: "primary" },
             { name: "Blender", level: "primary" },
-            { name: "SolidWorks" },
-            { name: "Mastercam" },
             { name: "Ansys Fluent", level: "primary" },
-            { name: "Ansys EM" },
             { name: "LS-Dyna", level: "primary" },
+            { name: "Mastercam" },
+            { name: "3D printing (FDM, resin, PET-CF)", level: "primary" },
+            { name: "CNC machining" },
         ],
     },
     {
-        heading: "Hardware/Robotics",
+        heading: "Electronics & Hardware",
         skills: [
+            { name: "High-voltage electronics", level: "primary" },
             { name: "Betaflight", level: "primary" },
-            { name: "Circuit Design" },
-            { name: "High-Voltage Systems" },
-            { name: "3D Printing", level: "primary" },
-            { name: "CNC Machining" },
             { name: "Soldering" },
+            { name: "Circuit design" },
         ],
-    },
-    {
-        heading: "Robotics/Simulation (In-Progress)",
-        skills: [
-            { name: "NVIDIA Isaac Sim", level: "primary" },
-            { name: "NVIDIA Isaac Lab", level: "primary" },
-            { name: "MuJoCo" },
-            { name: "Gazebo" },
-            { name: "OpenUSD" },
-            { name: "Model Predictive Control", level: "primary" },
-            { name: "ROS2" },
-            { name: "Sim-to-Real Transfer" },
-        ],
-    },
-];
-
-const services = [
-    {
-        title: "AI & Machine Learning",
-        description: "GPT pre-training, RLAIF pipelines, computer vision (YOLOv11), RL for robotics, distributed training on H100 HPC nodes, and agentic AI systems.",
-    },
-    {
-        title: "Engineering & Robotics",
-        description: "FPV drone design & fabrication, electromagnetic systems, CFD/FEA simulation (Ansys, LS-Dyna), CNC machining, sim-to-real transfer with Isaac Sim.",
-    },
-    {
-        title: "Full-Stack Development",
-        description: "ReactJS, Firebase, GCP, Node.js, TypeScript. Built enterprise workforce management apps and portfolio websites.",
-    },
-];
-
-const dataportfolio = [{
-        img: "https://picsum.photos/400/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/800/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/600/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/300/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/700/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-
-    {
-        img: "https://picsum.photos/400/600/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/300/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/550/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
-    },
-    {
-        img: "https://picsum.photos/400/700/?grayscale",
-        description: "The wisdom of life consists in the elimination of non-essentials.",
-        link: "#",
     },
 ];
 
@@ -264,10 +172,8 @@ const socialprofils = {
 export {
     meta,
     dataabout,
-    dataportfolio,
     worktimeline,
     skills,
-    services,
     introdata,
     contactConfig,
     socialprofils,

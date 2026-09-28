@@ -1,0 +1,173 @@
+# Introduction
+
+In 2025, I designed and fabricated a custom **FPV racing drone** achieving a peak speed of **240 km/h** with a total weight of just 610g. The frame was custom-designed in Blender and 3D printed in **PET-CF** (carbon fiber reinforced) for an optimal strength-to-weight ratio.
+
+I sourced all electronics from Shenzhen, including a Mamba flight controller, high-discharge LiPo batteries, and a DJI O4 Pro air unit for HD video transmission. The flight controller was programmed via Betaflight CLI/GUI with custom PID tuning.
+
+<DocumentLink
+  href="https://www.linkedin.com/posts/shi-hao-ng_expanding-on-my-previous-posts-about-me-successfully-activity-7389697087715622912-RbOX"
+  title="LinkedIn Post"
+  description="FPV Racing Drone build details"
+  icon="🔗"
+/>
+
+---
+
+# FPV Flying Footage
+
+<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "1rem"}}>
+  <iframe
+    src="https://www.youtube.com/embed/VfRMeVB7RLk"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="FPV Drone Flying Footage"
+  />
+</div>
+
+---
+
+# Maiden Flight Video
+
+<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "1rem"}}>
+  <iframe
+    src="https://www.youtube.com/embed/A3WwhNlCwlY"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="FPV Drone Maiden Flight"
+  />
+</div>
+
+---
+
+# Build Process
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/electronics-disassembled.jpg",
+      caption: "Mamba flight controller and ESC stack with four brushless motors and pink tri-blade propellers during assembly"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/brushless-motor-closeup.jpg",
+      caption: "Close-up of a brushless motor mounted on the 3D-printed PET-CF arm"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/dji-o4-camera-closeup.jpg",
+      caption: "DJI O4 Pro air unit camera and VTX mounted on the custom frame with wiring harness"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-build-with-wiring-diagram.jpg",
+      caption: "Assembled drone alongside the wiring diagram used during the build"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-assembled-top-view.jpg",
+      caption: "Top-down view of the fully assembled drone with LiPo battery and spare PET-CF frame"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/petcf-frame-underside.jpg",
+      caption: "Underside of the custom PET-CF 3D-printed frame showing the carbon-fiber reinforced structure"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-weight-measurement.jpg",
+      caption: "Weighing the complete drone on a digital scale — 610g all-up weight"
+    }
+  ]}
+  width={900}
+  height={600}
+/>
+
+<br></br>
+<br></br>
+
+---
+
+# Flight Controller Configuration
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/betaflight-gui-configuration.jpg",
+      caption: "Betaflight GUI configurator connected to the drone for PID tuning and sensor calibration"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/betaflight-cli-status.jpg",
+      caption: "Betaflight CLI status output showing MCU F722, gyro configuration, and system diagnostics"
+    }
+  ]}
+  width={900}
+  height={600}
+/>
+
+The flight controller runs **Betaflight** firmware with custom PID tuning for aggressive racing performance. Configuration was done through both the GUI configurator and the CLI for fine-grained control over sensor rates, motor protocols, and arming parameters.
+
+<br></br>
+<br></br>
+
+---
+
+# Maiden Flight
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-complete-desk-setup.jpg",
+      caption: "Pre-flight setup — drone with DJI FPV goggles and laptop for final checks"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/flight-location-dusk.jpg",
+      caption: "The maiden flight location at dusk"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-powered-on-outdoor.png",
+      caption: "Drone powered on with LiPo battery, LEDs active, ready for maiden flight"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-ground-pre-flight.jpg",
+      caption: "Drone on the ground before takeoff — aerial view from above"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/fpv-goggles-flight-view.png",
+      caption: "DJI FPV goggles view during the maiden flight — showing HUD with telemetry data"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-on-car-night.jpg",
+      caption: "Post-flight — drone resting on a car hood with LEDs glowing and DJI goggles nearby"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/fpv-drone/images/drone-desk-display.jpg",
+      caption: "The completed FPV racing drone on display at the desk"
+    }
+  ]}
+  width={900}
+  height={600}
+/>
+
+<br></br>
+<br></br>
+
+---
+
+# Design & Specifications
+
+**Key Specs:**
+- **Weight:** 610g all-up
+- **Top Speed:** 240 km/h
+- **Frame:** Custom Blender design, 3D printed in PET-CF
+- **FC:** Mamba flight controller (MCU F722)
+- **VTX:** DJI O4 Pro air unit
+- **Batteries:** High-discharge LiPo
+- **Firmware:** Betaflight with custom PID tuning
+
+<br></br>
+<br></br>
+
+---
+
+# Skills Developed
+
+- FPV drone design and aerodynamics
+- Blender for engineering CAD
+- 3D printing with composite materials (PET-CF)
+- Betaflight CLI/GUI configuration and PID tuning
+- Electronics sourcing and soldering
+- High-speed flight control systems

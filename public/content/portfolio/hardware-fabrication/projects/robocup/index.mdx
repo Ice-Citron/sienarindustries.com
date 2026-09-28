@@ -1,0 +1,162 @@
+---
+github: "https://github.com/First-Order-RoboCup-SSL/Utama-Core"
+---
+# Introduction
+
+I'm the **AI Engineer** for **First Order Robotics**, Imperial College London's RoboCup SSL (Small Size League) team. We're developing autonomous football-playing robots that compete in the international [RoboCup](https://ssl.robocup.org/) competition, where teams of six small robots play fully autonomous football on a 9m x 6m field under overhead camera vision.
+
+Our core software stack, **Utama-Core**, is a Python-based control system with performance-critical C++ extensions for real-time motion planning. It handles everything from raw vision data ingestion through to strategy execution and robot command dispatch.
+
+*This is an in-progress project (2025--present).*
+
+<DocumentLink
+  href="https://github.com/First-Order-RoboCup-SSL/Utama-Core"
+  title="Utama-Core Repository"
+  description="Core control system for the robots -- Python + C++ MPC, behaviour trees, replay system"
+  icon="💻"
+/>
+
+---
+
+# Team Photos
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/team-photo-lecture-hall.jpg",
+      caption: "First Order Robotics -- full team photo at Imperial College London"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/team-photo-announcement.jpg",
+      caption: "Team announcement event in the Imperial lecture theatre"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/team-working-session.jpg",
+      caption: "Software team working session -- developing the Utama-Core stack"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/team-dinner-social.jpg",
+      caption: "Team social dinner after a sprint session"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/team-dinner-group.jpg",
+      caption: "First Order Robotics team bonding over food"
+    }
+  ]}
+  width={800}
+  height={500}
+/>
+
+---
+
+# System Architecture
+
+The Utama-Core pipeline follows a layered dataflow architecture. Network receivers ingest vision, robot feedback, and referee data via UDP multicast (protobuf). Refiners then process and fuse this raw data -- the **Position Refiner** combines multi-camera detections, the **Velocity Refiner** integrates IMU feedback, and the **Referee Refiner** translates game commands. The refined state feeds into a **Strategy** module backed by **py-trees behaviour trees**, which assigns roles and produces per-robot commands dispatched to grSim, rSoccer (lightweight simulator), or real hardware.
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/system-architecture-pipeline-v2.png",
+      caption: "Utama-Core system architecture (v2) -- receivers, refiners, strategy, and multi-target dispatch"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/system-architecture-pipeline.png",
+      caption: "Original pipeline design showing the full dataflow from network to robot commands"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/robocup-ssl-field-guide.jpg",
+      caption: "RoboCup SSL Division B field -- 9000mm x 6000mm, coordinates in metres, heading 0 rad = positive x-axis"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/grsim-simulator-config.png",
+      caption: "grSim simulator configuration -- Division B, 6 robots per team, multicast on 224.5.23.2:10006"
+    },
+    {
+      src: "/content/portfolio/hardware-fabrication/projects/robocup/images/robot-identification-patterns.svg",
+      caption: "Standard SSL robot identification colour patterns used for overhead camera tracking"
+    }
+  ]}
+  width={800}
+  height={500}
+/>
+
+---
+
+# My Role
+
+## Model Predictive Control (C++ Extension)
+
+I implemented the **MPC motion controller in C++** (via nanobind Python bindings) for real-time robot trajectory planning. The C++ `OmniMPC` class uses Eigen for linear algebra and runs a heuristic predictive solver at the control loop rate:
+
+- **Prediction horizon:** 20 timesteps at 0.05s intervals (1 second lookahead)
+- **Dynamic obstacle avoidance:** Exponential repulsion fields with velocity-dependent safety margins -- predicts obstacle positions 0.1s ahead and applies clamped forces to prevent simulator instability
+- **Acceleration and velocity clamping:** Enforces physical limits (3.0 m/s^2 max accel, 2.0 m/s max vel) to keep commands feasible on real hardware
+- **Fallback:** If the C++ extension fails to import, the system gracefully degrades to a PID controller
+
+The C++ extension is built automatically via `pixi run main` using CMake + scikit-build-core, and can be force-rebuilt with `pixi run rebuild-mpc-cpp`.
+
+## Strategy System (Behaviour Trees)
+
+The strategy layer uses **py-trees** to compose team behaviours as decision trees. Each strategy implements an `AbstractStrategy` that:
+1. Creates a behaviour tree for role assignment and tactical execution
+2. Validates robot counts and field configuration at startup
+3. Steps through the tree each tick, dispatching `RobotCommand` objects per robot
+4. Renders the behaviour tree as DOT/PNG/SVG for debugging via Graphviz
+
+Current strategies include defence formations, ball pursuit, and robot placement patterns -- all composable through the behaviour tree abstraction.
+
+## Replay System
+
+I contributed to the **replay system** that serialises game frames as pickle files for post-match analysis:
+- `ReplayWriter` streams `GameFrame` objects to `.pkl` files during live play
+- `ReplayPlayer` reconstructs matches in the rSoccer renderer with full play-by-play scrubbing (arrow keys for frame-by-frame navigation)
+- Replays capture metadata (team colour, robot counts) and can be auto-named or versioned to avoid overwrites
+
+## Reinforcement Learning Strategy (Planned)
+
+- Developing an **AlphaGo-style self-play RL pipeline** using NVIDIA Isaac Sim
+- Goal: replace heuristic-based strategy code with learned policies
+- Training in simulation, then deploying to physical robots via sim-to-real transfer
+
+<br></br>
+<br></br>
+
+---
+
+# The Utama-Core Codebase
+
+**Package manager:** [Pixi](https://pixi.sh/) (conda-forge channels, Python 3.11, with a separate `robosim` environment for rSoccer)
+
+**Key modules inside `utama_core/`:**
+
+| Module | Purpose |
+|---|---|
+| `strategy/` | Behaviour tree strategies (py-trees) -- role assignment, tactics, plays |
+| `skills/` | Low-level robot skills -- go-to-point, goalkeep, score goal, intercept, block, man-mark |
+| `motion_planning/` | Controllers (PID, DWA, MPC Python, **MPC C++**) and path planning with obstacle avoidance |
+| `team_controller/` | Network I/O -- protobuf receivers/senders for grSim, rSoccer, and real robots via serial |
+| `run/` | Main loop orchestration -- `StrategyRunner`, refiners (position, velocity, referee), predictors |
+| `entities/` | Data models -- `Game`, `Robot`, `Ball`, `Field`, `GameFrame`, `Vector2D`, protobuf wrappers |
+| `replay/` | Game recording and playback in rSoccer renderer |
+| `rsoccer_simulator/` | Lightweight built-in SSL simulator with pygame rendering |
+| `config/` | Physical constants, robot params (grSim/real/rSim profiles), role/tactic enums, formations |
+| `tests/` | Pytest suite -- motion planning, refiners, receivers, replay, strategy runner integration tests |
+
+**Key dependencies:** NumPy, Pygame, Protobuf, Gymnasium, CasADi, CVXPY, Eigen (C++), nanobind
+
+<br></br>
+<br></br>
+
+---
+
+# Skills Developed
+
+- Model Predictive Control (C++ with Eigen, nanobind Python bindings)
+- Behaviour tree architecture (py-trees) for multi-robot strategy
+- Real-time control systems and control loop design
+- grSim / rSoccer simulator integration and configuration
+- Protobuf-based network communication (UDP multicast)
+- Replay systems for post-match analysis
+- Multi-robot coordination and path planning
+- Pixi package management and CI/CD (GitHub Actions)
+- Reinforcement learning for robotics (NVIDIA Isaac Sim -- in progress)
