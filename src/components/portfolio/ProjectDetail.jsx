@@ -152,9 +152,12 @@ const DocumentLink = ({ href, title, description, icon = "📄" }) => (
 // Slug → GitHub repo URL mapping
 const GITHUB_REPOS = {
   // Computer Science
-  'gpt-valkyrie': 'https://github.com/Ice-Citron/GPT-Valkyrie',
+  'project-ladder': 'https://github.com/Ice-Citron/Project-Ladder',
+  'project-automaton': 'https://github.com/Ice-Citron/Project-Automaton',
+  'armv8-rackinsert-c': 'https://github.com/Ice-Citron/ARMv8-RackInsert-C',
+  'gpt-valkyrie': 'https://github.com/Ice-Citron/nanoGPT-Valkyrie',
   'edutech': 'https://github.com/Ice-Citron/Edutech-Recon-Drone',
-  'game-engine': 'https://github.com/Ice-Citron/CAS-Project--Hazel',
+  'game-engine': 'https://github.com/Ice-Citron/Sparky',
   'ibm-datathon': 'https://github.com/Ice-Citron/IBM-Z-Datathon',
   'new-dejima': 'https://github.com/Ice-Citron/New-Dejima',
   'skyhammer': 'https://github.com/Ice-Citron/Gemini-Hackathon',
@@ -163,13 +166,12 @@ const GITHUB_REPOS = {
   'rockstar-datathon': 'https://github.com/Ice-Citron/Rockstar-GTAV-Datathon',
   'reply-aim': 'https://github.com/Ice-Citron/Reply-AIM-Hackathon',
   'rl-iterate': 'https://github.com/Ice-Citron/RL-Iterate-London-Hackathon',
-
   'project-liberty': 'https://github.com/Ice-Citron/Project-Liberty',
   // Engineering
   'robocup': 'https://github.com/First-Order-RoboCup-SSL/Utama-Core',
   'isaac-sim': 'https://github.com/Ice-Citron/Project-Automaton',
-  'railgun': 'https://github.com/Ice-Citron/FEA-Physics_IA',
-  'f1-in-schools': 'https://github.com/Ice-Citron/Anduril-F1',
+  'railgun': 'https://github.com/Ice-Citron/Project-Railgun',
+  'f1-in-schools': 'https://github.com/Ice-Citron/anduril',
   'display-spinner': 'https://github.com/Ice-Citron/DT-Coursework',
 };
 
