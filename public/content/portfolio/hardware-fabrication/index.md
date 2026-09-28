@@ -1,8 +1,5 @@
 ---
 sections:
-  - id: "ongoing"
-    title: "Current & Ongoing Projects"
-    path: "/content/portfolio/hardware-fabrication/ongoing.md"
   - id: "2025"
     title: "Year 2025"
     path: "/content/portfolio/hardware-fabrication/year-2025.md"
