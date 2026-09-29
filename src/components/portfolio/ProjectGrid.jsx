@@ -13,6 +13,7 @@ const ProjectGrid = ({ category }) => {
   const [skillSections, setSkillSections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [intro, setIntro] = useState("");
 
   useEffect(() => {
     async function loadData() {
@@ -73,6 +74,7 @@ const ProjectGrid = ({ category }) => {
           }
         }
 
+        setIntro(indexData.intro || "");
         setSubsections(loadedSubs);
         setSkillSections(loadedSkillSections);
       } catch (err) {
@@ -143,6 +145,7 @@ const ProjectGrid = ({ category }) => {
 
   return (
     <div className="p-4">
+      {intro && <p className="mb-4">{intro}</p>}
       {category === "foundations" && <VideoSummary />}
       {/* Render each subsection */}
       {subsections.map((sub, idx) => (
@@ -211,6 +214,13 @@ const ProjectGrid = ({ category }) => {
                       >
                         [more details]
                       </a>
+                    )}
+                    {cert.subjects?.length > 0 && (
+                      <ul className="mb-1">
+                        {cert.subjects.map((subject, sIdx) => (
+                          <li key={sIdx}>{subject}</li>
+                        ))}
+                      </ul>
                     )}
                   </li>
                 ))}
