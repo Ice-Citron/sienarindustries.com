@@ -9,10 +9,24 @@ show_courses: false
 show_books: false
 
 projects:
-  - title: "New Dejima — Modified OpenClaw"
-    description: "Autonomous AI agent revenue system — no-human-in-the-loop pipeline for Android app generation, deployment, and self-debugging"
-    technologies: ["OpenClaw", "ElevenLabs", "Veo 3.1"]
-    image: "/assets/images/thumbnails/Computing/New Dejima/New Dejima - Eiffel 1.JPG"
-    slug: "new-dejima"
+  - title: "Project Liberty"
+    description: "Deep codebase study via manual typing -- llama.cpp, GGML, AlphaZero, and more"
+    technologies: ["C/C++", "GGML", "llama.cpp", "Python"]
+    image: "/assets/images/thumbnails/Computing/Project Liberty/Lucky.jpeg"
+    slug: "project-liberty"
+    featured: false
+
+  - title: "Kotlin Workbench"
+    description: "Following freeCodeCamp's Kotlin course, committing my progress as I go"
+    technologies: ["Kotlin"]
+    image: "/assets/images/thumbnails/placeholder.svg"
+    slug: "kotlin-workbench"
+    featured: true
+
+  - title: "C Workbench"
+    description: "Personal C workspace — data structures, memory management, binary I/O, bit operations, Makefiles"
+    technologies: ["C", "Make"]
+    image: "/assets/images/thumbnails/placeholder.svg"
+    slug: "c-workbench"
     featured: true
 ---

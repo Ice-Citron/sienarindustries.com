@@ -12,7 +12,10 @@ sections:
   - id: "2022"
     title: "Year 2022"
     path: "/content/portfolio/hardware-fabrication/year-2022.md"
-
-skills:
-  path: "/content/portfolio/hardware-fabrication/skills.md"
+  - id: "2021"
+    title: "Year 2021"
+    path: "/content/portfolio/hardware-fabrication/year-2021.md"
+  - id: "2020"
+    title: "Year 2020"
+    path: "/content/portfolio/hardware-fabrication/year-2020.md"
 ---
