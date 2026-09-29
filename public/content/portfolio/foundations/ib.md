@@ -24,11 +24,4 @@ certifications:
   - title: "IB Bilingual Diploma: 42 points (777 HL)"
     org: "Marlborough College Malaysia"
     year: "2025"
-    subjects:
-      - "Physics HL"
-      - "Mathematics: Analysis and Approaches HL"
-      - "Computer Science HL"
-      - "Malay A SL"
-      - "Geography SL"
-      - "English Literature SL"
 ---
