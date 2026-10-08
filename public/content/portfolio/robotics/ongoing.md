@@ -12,7 +12,7 @@ projects:
   - title: "Project Ladder"
     description: "Perception-first cable insertion for Intrinsic's AI for Industry Challenge — paper in progress"
     technologies: ["ROS 2", "Gazebo", "PyTorch", "UR5e"]
-    image: "/content/portfolio/robotics/projects/project-automaton/images/intrinsic-workcell.png"
+    image: "assets/images/thumbnails/Engineering/Project Automaton/IMG_8863.JPG"
     slug: "project-ladder"
     featured: true
 ---

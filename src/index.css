@@ -94,3 +94,15 @@ code {
 .color_sec {
     color: var(--secondary-color);
 }
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 0.5rem 1.25rem;
+    border-left: 3px solid var(--text-color);
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
