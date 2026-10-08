@@ -3,4 +3,79 @@ github: "https://github.com/Ice-Citron/ARMv8-RackInsert-C"
 ---
 # ARMv8-RackInsert-C
 
-*This page is currently being updated. Last updated: 28 September 2026.*
+Every robotics competition I’ve done handed me their custom-built evaluator. From March 2026 to June 2026, I took part in the Intrinsic’s AI for Industry Challenge (read more here). In this competition, the scene, the scoring and held-out trials all arrived ready-made, and our job as participants is to only handle the robot policy. 
+
+This phenomenon left behind a vacuum in my understanding, that is, I never had the opportunity to build and grok the backend which evaluates my policy and produces a score. This is especially important for someone like me who’s very interested in sim-to-real, because designing the evaluation infrastructure is practically what sim-to-real mostly is. Hence, when Imperial allowed me to build whatever I wanted for my first-year C project’s extension, I decided to build my own naive version of the AIC evaluation engine—in a level lower than the original built by Intrinsic which used C++/ROS 2 Kilted—using C and the MuJoCo’s C API. 
+
+<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+  <iframe
+    src="https://www.youtube.com/embed/jAJkbK6g7yc"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="RackInsert-C demonstration in MuJoCo"
+  />
+</div>
+
+*The video shows the RackInsert-C scene in MuJoCo running a dummy WaveArm policy, which scores 1 point in the benchmark snapshot in the video. The robotic arm isn’t meant to do the cable insertion task here, as the policy is just a dummy placeholder, given that the aim of this demo is to show that the evaluation engine loads the scene, runs the trial and produces a score.*
+
+I expected it to be hard, but it turned out to be surprisingly simple and clean. Ironically, I found it especially interesting how my experience in programming MuJoCo C API for this project felt very reminiscent of when I was writing the punch-card-style K files that I used to get my augmented electromagnetic railgun running in LS-Dyna two years earlier. 
+
+---
+
+# The Project
+
+The extension, my favourite part, was the fourth part of the final group project of Imperial’s first-year C programming course. The group project was done by a team of four (Ryan Wong, Rayan Abdallah, Rahul Babu and me) over three weeks in June 2026. The project has three fixed components and a fourth open-ended section allowing us to build whatever we want. 
+
+For the required parts, we built:
+
+- An ARMv8 assembler which converts assembly source code to machine code 
+- An ARMv8 emulator which executes a subset of the AArch64 instruction set and prints the final register and memory state
+- A Raspberry PI program which uses its memory-mapped GPIO registers to blink an LED connected to the RPi.
+
+<div style={{maxWidth: "360px", margin: "0 auto 0.5rem"}}>
+  <div style={{position: "relative", width: "100%", paddingBottom: "177.78%"}}>
+    <iframe
+      src="https://www.youtube.com/embed/EGduXmo1t-E"
+      style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+      allowFullScreen
+      title="Raspberry Pi GPIO demonstration"
+    />
+  </div>
+</div>
+
+*Ryan, Rahul and Rayan demonstrate the Raspberry Pi GPIO program.*
+
+My teammates wrote the ARMv8 emulator and the RPi GPIO program, whilst I wrote a large part of the assembler, and all of the extension. 
+
+For the extension, I built RackInsert-C. RackInsert-C is my own version of the evaluation engine (the AIC eval_engine) from Intrinsic’s AI for Industry Challenge, written with MuJoCo’s C API. My evaluation engine loads the scene sourced from Intrinsic’s competition, then runs a scripted dummy policy on the UR5e arm and measures where the TCP (plug tip) ends up relative to the socket, and scores the trial. For this project, the robot controller is deliberately a dummy policy that waves, not a real cable-insertion policy: the goal was to to show that the evaluation engine loads the scene, runs the trial and produces a score end-to-end, and a proper policy on top of it is a different research project that I’m currently tackling.
+
+---
+
+# Results
+
+> The group project scored 92/100 for the fixed components, whilst the extension on its own scored 90/100.
+
+---
+
+# Documents
+
+Our final group report:
+
+<PDFViewer url="/content/portfolio/robotics/projects/armv8-rackinsert-c/final-report.pdf" />
+
+The PDF specification from Imperial on what we need to build:
+
+<PDFViewer url="/content/portfolio/robotics/projects/armv8-rackinsert-c/c-project-spec.pdf" />
+
+---
+
+# Technical Implementation
+
+If interested in the implementation detail or test running what we built, please see the README.md of the source code: 
+
+<DocumentLink
+  href="https://github.com/Ice-Citron/ARMv8-RackInsert-C"
+  title="ARMv8-RackInsert-C — GitHub"
+  description="Assembler, emulator, GPIO program and the RackInsert-C extension"
+  icon="💻"
+/>
