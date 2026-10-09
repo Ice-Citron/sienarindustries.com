@@ -12,7 +12,7 @@ projects:
   - title: "Award Ceremony for IGCSE"
     description: "IGCSE 10A* 2A — Best in Asia for CS, Best in Malaysia for DT, Physics & Chemistry"
     technologies: ["Computer Science", "Design Technology", "Physics", "Chemistry"]
-    image: "/assets/images/thumbnails/Academic/IGCSE Awards/award-1.jpg"
+    image: "/assets/images/thumbnails/foundations/igcse-awards/award-1.jpg"
     slug: "igcse-awards"
     featured: true
 

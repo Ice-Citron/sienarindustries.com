@@ -19,7 +19,6 @@ The project involved training multiple model variants on Nvidia A100 and H100 GP
     }
   ]}
   width={900}
-  height={600}
 />
 
 In the original decoder-only transformer architecture (GPT-2, which I reproduced using a 900-line PyTorch code based on Andrej Karpathy's nanoGPT repo and "Zero-to-Hero" course), I investigated whether normalisation layers are truly necessary for smaller models at 124 million to 1.5 billion parameters.
@@ -53,7 +52,6 @@ For my investigation, I created 4 variant models by systematically removing or r
     }
   ]}
   width={900}
-  height={600}
 />
 
 I got access to 4x Nvidia A100 GPUs for free for 200+ hours thanks to purchasing Nvidia's GTC DNN course ($550 USD). After exhausting those credits, I switched to renting Nvidia H100 80GB SXM5 GPUs from Tensordock.

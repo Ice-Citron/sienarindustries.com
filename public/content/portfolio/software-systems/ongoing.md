@@ -12,7 +12,7 @@ projects:
   - title: "Project Liberty"
     description: "Deep codebase study via manual typing -- llama.cpp, GGML, AlphaZero, and more"
     technologies: ["C/C++", "GGML", "llama.cpp", "Python"]
-    image: "/assets/images/thumbnails/Computing/Project Liberty/Lucky.jpeg"
+    image: "/assets/images/thumbnails/software-systems/project-liberty/Lucky.jpeg"
     slug: "project-liberty"
     featured: false
 

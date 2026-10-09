@@ -106,3 +106,119 @@ blockquote {
 blockquote p:last-child {
     margin-bottom: 0;
 }
+
+/* Image/video captions, used as <Caption> in project pages */
+.caption {
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    text-wrap: pretty;
+    font-family: "SFMono-Regular", "Fira Code", "Consolas", monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    opacity: 0.7;
+}
+
+/* Lists inside project pages (the global "ul { list-style: none }" above is for the nav) */
+.project-body ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-body li {
+    margin-bottom: 0.35rem;
+}
+
+.project-body ul ul {
+    list-style: "\25B8\00A0\00A0";   /* ▸ sub-bullets */
+    margin: 0.35rem 0 0.5rem;
+}
+
+.project-body ul ul > li::marker {
+    color: var(--text-color-3);
+}
+
+/* Project-page carousel (MyCarousel) */
+.project-carousel {
+    margin: 1.5rem auto;
+}
+
+.project-carousel .carousel.carousel-slider {
+    border-radius: 8px;
+    background: #0c0c0c;
+}
+
+.project-carousel__slide {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-carousel .carousel-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.project-carousel .carousel.carousel-slider .control-arrow {
+    opacity: 0.6;
+    width: 56px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.45), transparent);
+}
+
+.project-carousel .carousel.carousel-slider .control-next.control-arrow {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.45), transparent);
+}
+
+.project-carousel .carousel.carousel-slider .control-arrow:hover {
+    opacity: 1;
+}
+
+.project-carousel .carousel .thumbs-wrapper {
+    margin: 10px 0 0;
+}
+
+.project-carousel .carousel .thumb {
+    width: 72px;
+    height: 48px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background: #0c0c0c;
+    opacity: 0.55;
+    transition: opacity 0.15s, border-color 0.15s;
+}
+
+.project-carousel .carousel .thumb:hover {
+    opacity: 1;
+    border-color: var(--text-color);
+}
+
+.project-carousel .carousel .thumb.selected {
+    opacity: 1;
+    border-color: var(--text-color-3);
+}
+
+.project-carousel__thumb {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.project-carousel__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-carousel__count {
+    margin-right: 0.75em;
+    opacity: 0.6;
+}

@@ -2,139 +2,65 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const VideoSlide = ({ src, videoType = "video/mp4", youtube, vimeo, title = "Video", onLoadedData }) => {
-  const videoRef = React.useRef(null);
+// A local video file inside a slide.
+const VideoSlide = ({ src, videoType = "video/mp4" }) => (
+  <video className="carousel-media" controls preload="metadata" playsInline>
+    <source src={src} type={videoType} />
+    Your browser does not support the video tag.
+  </video>
+);
 
-  React.useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.addEventListener('loadeddata', onLoadedData);
-      return () => {
-        if (videoRef.current) {
-          videoRef.current.removeEventListener('loadeddata', onLoadedData);
-        }
-      };
-    }
-  }, [onLoadedData]);
+const PlayIcon = () => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+    <path d="M8 5v14l11-7z" />
+  </svg>
+);
 
-  // ... other iframe conditions stay the same ...
-
-  // Local video file
-  return (
-    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <video 
-        ref={videoRef}
-        controls 
-        width="100%" 
-        height="100%"
-        style={{ 
-          maxWidth: '100%',
-          maxHeight: '100%',
-          objectFit: 'contain'
-        }}
-        preload="metadata"
-        playsInline
-      >
-        <source src={src} type={videoType} />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  );
-};
-
-export default function MyCarousel({
-  slides = [],
-  width = 800,
-  height = 400,
-  autoPlay = false,
-}) {
-  const renderThumbnail = (slide) => {
-    if (slide.type === 'video') {
-      // Return a default video thumbnail icon or the first frame of the video
-      return '/video-thumbnail-icon.png'; // You can create and add this default image to your public folder
-    }
-    return slide.src;
-  };
+// Image/video carousel for project pages.
+// slides: [{ src, caption, type?: "video", videoType? }]
+// width: max width in px. The frame keeps a 3:2 ratio; media is letterboxed, not cropped.
+export default function MyCarousel({ slides = [], width = 900, autoPlay = false }) {
+  const [current, setCurrent] = React.useState(0);
+  const caption = slides[current]?.caption;
 
   return (
-    <div style={{ maxWidth: `${width}px`, margin: "1rem auto" }}>
+    <div className="project-carousel" style={{ maxWidth: `${width}px` }}>
       <Carousel
-        showArrows={true}
+        showArrows
         showStatus={false}
-        showIndicators={true}
-        infiniteLoop={true}
-        useKeyboardArrows={true}
-        showThumbs={true}
-        thumbWidth={80}
-        selectedItem={0}
-        renderThumbs={() => 
+        showIndicators={false}
+        showThumbs={slides.length > 1}
+        infiniteLoop
+        useKeyboardArrows
+        autoPlay={autoPlay}
+        thumbWidth={72}
+        onChange={setCurrent}
+        renderThumbs={() =>
           slides.map((slide, idx) => (
-            <div 
-              key={idx} 
-              style={{
-                width: '80px',
-                height: '60px',
-                backgroundColor: '#f0f0f0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: '1px solid #ddd'
-              }}
-            >
-              {slide.type === 'video' ? (
-                <div style={{
-                  fontSize: '12px',
-                  textAlign: 'center',
-                  color: '#666'
-                }}>
-                  Video
-                </div>
-              ) : (
-                <img 
-                  src={slide.src}
-                  alt={slide.caption || `Thumbnail ${idx}`}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                />
-              )}
+            <div key={idx} className="project-carousel__thumb">
+              {slide.type === "video" ? <PlayIcon /> : <img src={slide.src} alt="" />}
             </div>
           ))
         }
       >
-        {slides.map((slide, idx) => {
-          const { type } = slide;
-          const slideStyle = height ? {
-            height: `${height}px`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            overflow: "hidden",
-          } : {};
-
-          return (
-            <div key={idx} style={slideStyle}>
-              {type === 'video' ? (
-                <VideoSlide {...slide} />
-              ) : (
-                <>
-                  <img 
-                    src={slide.src} 
-                    alt={slide.caption || `Slide ${idx}`} 
-                    style={height ? {
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "100%",
-                    } : {}}
-                  />
-                  {slide.caption && <p className="legend">{slide.caption}</p>}
-                </>
-              )}
-            </div>
-          );
-        })}
+        {slides.map((slide, idx) => (
+          <div key={idx} className="project-carousel__slide">
+            {slide.type === "video" ? (
+              <VideoSlide {...slide} />
+            ) : (
+              <img className="carousel-media" src={slide.src} alt={slide.caption || `Slide ${idx + 1}`} />
+            )}
+          </div>
+        ))}
       </Carousel>
+      {(caption || slides.length > 1) && (
+        <p className="caption">
+          {slides.length > 1 && (
+            <span className="project-carousel__count">{current + 1}/{slides.length}</span>
+          )}
+          {caption}
+        </p>
+      )}
     </div>
   );
 }

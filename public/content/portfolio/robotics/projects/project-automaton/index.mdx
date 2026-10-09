@@ -13,19 +13,19 @@ From February 2026 to June 2026, I competed in Intrinsic’s AI for Industry Cha
   style={{width: "100%", maxWidth: "560px", display: "block", margin: "0 auto 0.5rem", borderRadius: "8px"}}
 />
 
-*RTX 5090 workstation I bought for this competition.*
+<Caption>RTX 5090 workstation I bought for this competition</Caption>
 
 ---
 
 # What is AIC
 
 <img
-  src="/content/portfolio/robotics/projects/project-automaton/images/intrinsic-workcell.png"
+  src="/assets/images/thumbnails/robotics/project-automaton/intrinsic-workcell.png"
   alt="Intrinsic's AIC workcell: a UR5e arm above a fiber-optic task board"
   style={{width: "100%", borderRadius: "8px", marginBottom: "0.5rem"}}
 />
 
-*Intrinsic's AI for Industry Challenge Gazebo workbench: a UR5e arm and the fiber-optic task board.*
+<Caption>Intrinsic's AI for Industry Challenge Gazebo workbench: a UR5e arm and the fiber-optic task board</Caption>
 
 Intrinsic’s AI for Industry Challenge is a competition run by Alphabet’s Intrinsic with NVIDIA and Foxconn. Teams are asked to create a robot policy that gets a Universal Robots UR5e robotic arm to insert a fiber-optic cable into a server port across two connector types (SC & SFP), inside Gazebo. There was a qualification round and a final round; we didn’t get past qualification, finishing 49th out of 196 teams. The competition scored every submission with Intrinsic’s custom-created evaluation-engine (the AIC engine) inside Gazebo, across three held-out trials. This is a very difficult challenge, because cable insertion is a hard task in robotics: the contact and friction dynamics of cable ports are incredibly difficult to model, and tends to be where policies fail.
 
@@ -49,9 +49,9 @@ Intrinsic’s AI for Industry Challenge is a competition run by Alphabet’s Int
   />
 </div>
 
-*Coming soon: Video of CheatCode policy doing cable-insertion into task board*
+<Caption>Coming soon: Video of CheatCode policy doing cable-insertion into task board</Caption>
 
-*[Dataset coming soon: CheatCode.py SFP trajectories, 100 domain randomised episodes. The HF repo is private for now, will be uploaded soon]*
+*[HuggingFace Dataset coming soon: CheatCode.py SFP trajectories, 100 domain randomised episodes. The HF repo is private for now, will be uploaded soon]*
 
 <DocumentLink
   href="https://huggingface.co/rangers-intrinsic/hf_act_SC_only_connector_3cam_final/tree/main"
@@ -71,7 +71,7 @@ We started with imitation learning. Intrinsic, the competition organiser, provid
   />
 </div>
 
-*Video of me showcasing my modified-cartesian teleoperation recording pipeline to teammates.*
+<Caption>Video of me showcasing my modified-cartesian teleoperation recording pipeline to teammates</Caption>
 
 To acquire more varied demonstrations, I also built a Cartesian teleoperation pipeline and recorded insertions by driving the UR5e myself with a keyboard.
 
@@ -84,7 +84,7 @@ To acquire more varied demonstrations, I also built a Cartesian teleoperation pi
   />
 </div>
 
-*Coming soon: Video of the initial-version's ACT model’s poor performance in doing cable-insertion*
+<Caption>Coming soon: Video of the initial-version's ACT model’s poor performance in doing cable-insertion</Caption>
 
 Unfortunately, the performance was poor. Our policy only learned the easy half, it moved the TCP (the cable tip) reliably towards the correct port, but it could never complete the insertion as it would get stuck instead within millimeters.
 
@@ -97,7 +97,7 @@ Unfortunately, the performance was poor. Our policy only learned the easy half, 
   />
 </div>
 
-*Coming soon: Video where the ACT model gets close to SC/SFP but always gets stuck at the end*
+<Caption>Coming soon: Video where the ACT model gets close to SC/SFP but always gets stuck at the end</Caption>
 
 At this point, the first part, getting the TCP from the dock to just on top of the correct port, worked. The bottleneck was the last few millimeters, where the TCP had to actually insert into the port, and handle contact dynamics. This, final-stage cable insertion, was the kind of task where I had pinned my hopes and anticipation on reinforcement learning in robotic simulation, as it’s the whole reason I entered this competition—because of my love and admiration for the power of reinforcement learning’s ceiling. 
 
@@ -109,7 +109,7 @@ It didn’t work. Perhaps it was because I lacked the necessary skills because t
   style={{width: "100%", maxWidth: "560px", display: "block", margin: "0 auto 0.5rem", borderRadius: "8px"}}
 />
 
-*Coming soon: example segmentation from our deployed perception models.*
+<Caption>Coming soon: example segmentation from our deployed perception models</Caption>
 
 I also experimented with adding perception, with CNOS for segmentation and MegaPose for 6D pose estimation. The idea was that this would improve policy performance in training, as the policy can now tell apart the ports, from the task board, from the white table. Ultimately, we dropped the computer vision models due to competition compute-constraints. Because the held-out eval submissions were evaluated using a single NVIDIA L4 GPU, and adding two ViTs on top of our ACT policy was too much for the single L4 GPU to handle. The perception-overhead would’ve increased inference latency so much so that our control frequency would be decreased to the point where the policy could no longer handle fine-insertion, inside Gazebo, let alone the real world!
 
@@ -135,7 +135,7 @@ The ACT models behind APPROACH and ALIGN were trained on our custom-curated reco
   />
 </div>
 
-*Coming soon: Video showcasing our final FSM-ACT policy’s superior performance*
+<Caption>Coming soon: Video showcasing our final FSM-ACT policy’s superior performance</Caption>
 
 <div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
   <iframe
@@ -146,7 +146,7 @@ The ACT models behind APPROACH and ALIGN were trained on our custom-curated reco
   />
 </div>
 
-*Coming soon: Video showcasing FSM-ACT policy’s RETRY (contingency) after getting stuck*
+<Caption>Coming soon: Video showcasing FSM-ACT policy’s RETRY (contingency) after getting stuck</Caption>
 
 By then it was mid-June, and I was in the middle of my first-year Computing final exams at Imperial, so the last few weeks had far fewer hours for which I’ve allocated for this competition than I ideally should have. We only ended up finishing the FSM-ACT policy after my finals, and days before the qualification deadline and submitted it. 
 

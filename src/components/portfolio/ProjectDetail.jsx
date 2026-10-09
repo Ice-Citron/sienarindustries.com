@@ -187,6 +187,9 @@ const GitHubButton = ({ url }) => (
   </a>
 );
 
+// Centered caption under an image or video: <Caption>text</Caption>
+const Caption = ({ children }) => <p className="caption">{children}</p>;
+
 export default function ProjectDetail() {  // Changed name to match your file
   const { slug } = useParams();
 
@@ -298,6 +301,7 @@ export default function ProjectDetail() {  // Changed name to match your file
         PDFViewer,
         DocumentLink,
         GoogleSlides,
+        Caption,
       }}
     />
   );
@@ -339,7 +343,7 @@ export default function ProjectDetail() {  // Changed name to match your file
       )}
 
       {/* Main content with reduced spacing */}
-      <div style={{ lineHeight: 1.4 }}>
+      <div className="project-body" style={{ lineHeight: 1.4 }}>
         {MdxOutput}
       </div>
     </div>
