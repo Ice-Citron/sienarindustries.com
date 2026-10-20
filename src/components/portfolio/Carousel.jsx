@@ -18,13 +18,14 @@ const PlayIcon = () => (
 
 // Image/video carousel for project pages.
 // slides: [{ src, caption, type?: "video", videoType? }]
-// width: max width in px. The frame keeps a 3:2 ratio; media is letterboxed, not cropped.
-export default function MyCarousel({ slides = [], width = 900, autoPlay = false }) {
+// width: optional max width in px. Without it, the CSS (--media-width) sets the width.
+// The frame keeps a 3:2 ratio; media is letterboxed, not cropped.
+export default function MyCarousel({ slides = [], width, autoPlay = false }) {
   const [current, setCurrent] = React.useState(0);
   const caption = slides[current]?.caption;
 
   return (
-    <div className="project-carousel" style={{ maxWidth: `${width}px` }}>
+    <div className="project-carousel" style={width ? { maxWidth: `${width}px` } : undefined}>
       <Carousel
         showArrows
         showStatus={false}

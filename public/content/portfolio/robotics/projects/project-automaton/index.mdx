@@ -10,7 +10,7 @@ From February 2026 to June 2026, I competed in Intrinsic’s AI for Industry Cha
 <img
   src="/content/portfolio/robotics/projects/project-automaton/images/5090-new-pc.jpg"
   alt="The RTX 5090 workstation on my desk"
-  style={{width: "100%", maxWidth: "560px", display: "block", margin: "0 auto 0.5rem", borderRadius: "8px"}}
+  className="project-image"
 />
 
 <Caption>RTX 5090 workstation I bought for this competition</Caption>
@@ -22,7 +22,7 @@ From February 2026 to June 2026, I competed in Intrinsic’s AI for Industry Cha
 <img
   src="/assets/images/thumbnails/robotics/project-automaton/intrinsic-workcell.png"
   alt="Intrinsic's AIC workcell: a UR5e arm above a fiber-optic task board"
-  style={{width: "100%", borderRadius: "8px", marginBottom: "0.5rem"}}
+  className="project-image"
 />
 
 <Caption>Intrinsic's AI for Industry Challenge Gazebo workbench: a UR5e arm and the fiber-optic task board</Caption>
@@ -40,7 +40,7 @@ Intrinsic’s AI for Industry Challenge is a competition run by Alphabet’s Int
 
 # Our Research & Experimentations
 
-<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+<div className="video-embed">
   <iframe
     src="https://www.youtube.com/embed/Y-x0efG1seA"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
@@ -62,7 +62,7 @@ Intrinsic’s AI for Industry Challenge is a competition run by Alphabet’s Int
 
 We started with imitation learning. Intrinsic, the competition organiser, provides scripted reference policies in their repository (`CheatCode.py`) for the two connector types, SFP and SC. So, we recorded the trajectories from `CheatCode.py` across 100+ domain randomised episodes per connector type, and trained ACT (Action Chunking with Transformers) on these trajectories. 
 
-<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+<div className="video-embed">
   <iframe
     src="https://www.youtube.com/embed/lwLRHRoV3iM"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
@@ -75,7 +75,7 @@ We started with imitation learning. Intrinsic, the competition organiser, provid
 
 To acquire more varied demonstrations, I also built a Cartesian teleoperation pipeline and recorded insertions by driving the UR5e myself with a keyboard.
 
-<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+<div className="video-embed">
   <iframe
     src="https://www.youtube.com/embed/Y-x0efG1seA"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
@@ -88,7 +88,7 @@ To acquire more varied demonstrations, I also built a Cartesian teleoperation pi
 
 Unfortunately, the performance was poor. Our policy only learned the easy half, it moved the TCP (the cable tip) reliably towards the correct port, but it could never complete the insertion as it would get stuck instead within millimeters.
 
-<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+<div className="video-embed">
   <iframe
     src="https://www.youtube.com/embed/Y-x0efG1seA"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
@@ -106,7 +106,7 @@ It didn’t work. Perhaps it was because I lacked the necessary skills because t
 <img
   src="/assets/images/thumbnails/placeholder.svg"
   alt="Coming soon"
-  style={{width: "100%", maxWidth: "560px", display: "block", margin: "0 auto 0.5rem", borderRadius: "8px"}}
+  className="project-image"
 />
 
 <Caption>Coming soon: example segmentation from our deployed perception models</Caption>
@@ -126,7 +126,7 @@ In the end, with the qualification deadline nearing, we went boring, and boring 
 
 The ACT models behind APPROACH and ALIGN were trained on our custom-curated recorded trajectories. We made CheatCode (the scripted reference policy from Intrinsic) run under perturbations, and used our teleoperated insertions, so the model had seen clean approaches, near-misses and recoveries rather than only best case scenarios. The insertion portion of our policy (GUARDED_INSERT) had no learned components, it relies only on analytically controlled force-scaled stepping. This consequently was our only policy which reliably made contact without slamming into the ports.
 
-<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+<div className="video-embed">
   <iframe
     src="https://www.youtube.com/embed/Y-x0efG1seA"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
@@ -137,7 +137,7 @@ The ACT models behind APPROACH and ALIGN were trained on our custom-curated reco
 
 <Caption>Coming soon: Video showcasing our final FSM-ACT policy’s superior performance</Caption>
 
-<div style={{position: "relative", width: "100%", paddingBottom: "56.25%", marginBottom: "0.5rem"}}>
+<div className="video-embed">
   <iframe
     src="https://www.youtube.com/embed/Y-x0efG1seA"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}

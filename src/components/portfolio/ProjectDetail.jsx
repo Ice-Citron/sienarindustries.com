@@ -307,11 +307,7 @@ export default function ProjectDetail() {  // Changed name to match your file
   );
 
   return (
-    <div style={{ 
-      maxWidth: "1200px", 
-      margin: "0 auto", 
-      padding: "0.5rem",  // Reduced padding
-    }}>
+    <div className="project-page">
       <div style={{ marginBottom: '1rem' }}> {/* Reduced margin for header */}
         {frontMatter.title && (
           <h1 style={{

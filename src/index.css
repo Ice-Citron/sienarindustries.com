@@ -119,6 +119,43 @@ blockquote p:last-child {
     opacity: 0.7;
 }
 
+/* Project pages: one readable column, media scaled to it */
+.project-page {
+    --text-width: 950px;   /* max width of the column (headings, text, media) */
+    --media-width: 60%;    /* images, videos, carousels, as a share of the column */
+    max-width: var(--text-width);
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .project-page {
+        --media-width: 100%;
+    }
+}
+
+.project-body .project-image {
+    display: block;
+    width: 100%;
+    max-width: var(--media-width);
+    margin: 0 auto 0.5rem;
+    border-radius: 8px;
+}
+
+/* YouTube embeds: the iframe inside is position: absolute and fills the box */
+.project-body .video-embed {
+    position: relative;
+    width: 100%;
+    max-width: var(--media-width);
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 1rem;
+}
+
+.project-body .video-embed--portrait {
+    max-width: calc(var(--media-width) * 0.32);   /* same height as a 16:9 embed */
+    aspect-ratio: 9 / 16;
+}
+
 /* Lists inside project pages (the global "ul { list-style: none }" above is for the nav) */
 .project-body ul {
     list-style: disc;
@@ -141,6 +178,7 @@ blockquote p:last-child {
 
 /* Project-page carousel (MyCarousel) */
 .project-carousel {
+    max-width: var(--media-width);
     margin: 1.5rem auto;
 }
 

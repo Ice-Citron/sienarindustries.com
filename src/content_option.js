@@ -11,7 +11,7 @@ const introdata = {
         second: "I write C++, PyTorch and occasionally build railguns",
         third: "I fly FPV drones",
     },
-    description: "September 2026: most of my updated recent works are on GitHub rather than here, as I've spent the last month cleaning up and publishing repos. For now, this website is outdated and is a work-in-progress till October. Until then, github.com/Ice-Citron is the most recent picture.",
+    description: "20 October 2026: most of my updated recent works are on GitHub rather than here, as I've spent the last month cleaning up and publishing repos. For now, this website is outdated and is a work-in-progress till October. Until then, github.com/Ice-Citron is the most recent picture.",
     your_img_url: "/assets/images/Union_Square.JPG",
 };
 

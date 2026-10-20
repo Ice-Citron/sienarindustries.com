@@ -1,6 +1,69 @@
 # Robotics & Machine Learning Intern @ Vikaso Robotics
 
-*This page is currently being updated. I am still checking what I am allowed to 
-share about this work experience from Vikaso. 
+I completed a three month internship at Vikaso Robotics from June 2026 to September 2026 in Aylesbury, United Kingdom as a Robotics & Machine Learning Intern.
 
-Last updated: 08 October 2026.*
+> Project details are confidential, so this page describes my work at a general level.
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/kuka-cell.jpg",
+      caption: "Two KUKA arms on a cell in the workshop"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/rnd-team.jpg",
+      caption: "The R&D team"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/ur5e.jpg",
+      caption: "Next to the UR5e in Vikaso's R&D workshop"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/company.jpg",
+      caption: "Vikaso Robotics, full company photo"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/quainton-view-1.jpg",
+      caption: "The fields outside the Quainton site"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/quainton-view-2.jpg",
+      caption: "Outside the Quainton site"
+    }
+  ]}
+/>
+
+I worked on camera calibration, robot calibration and computer vision. Specifically, I built end-to-end pipelines for camera intrinsic calibration and TCP-to-robot-base extrinsic calibration, reaching a millimeter-levels of accuracy. On computer vision, I integrated several open-source segmentation and 6D pose estimation models behind one common interface.
+
+To verify that each of my integrations is correct, I built an evaluation harness which runs every model on 6D localisation or 2D detections tasks across public datasets. If a model’s evaluated metrics in my harness matches the metrics reported in its paper, then this informs us that our integration has reproduced the papers’ published results. This check now also applies to any new models that will be integrated in the future.
+
+It was eerie to see the robots work in person. When you spend so much time behind computer screens working on software or infrastructure, it builds up a disconnect, where building a robot system sort of becomes this religious fervour you were always working towards yet somehow you forget about. But seeing the robots actually working in the end is always incredibly satisfying, and also eerie.
+
+It was also nice to see, in person, the bottlenecks behind industrial automation, how high the cost of failure is in hardware firms, and the huge need for four-nines reliability. Moreover, whilst this sounds incredibly obvious in hindsight, it makes sense to me now why robotics has never really taken off outside of industrial settings. Not because no one’s willing to do it in the open world or in household environments, but because the current techniques are simply too fickle, and don't really work there. For now, they only work in very narrow domains, and the reason it took off in industrial settings is that only in there can designers control the environment enough to narrow the domain, so much so that systems are enabled to actually work at four-nines reliability.
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/mini-plant-tour.jpg",
+      caption: "Company visit to MINI Plant Oxford"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/mini-plant-outside.jpg",
+      caption: "Outside MINI Plant Oxford"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/vikaso-internship/images/mini-plant-wristbands.jpg",
+      caption: "Visitor wristbands from the plant tour"
+    }
+  ]}
+/>
+
+Finally, I would like to express my deepest gratitude to Ali for being an incredible mentor the whole way through, and for giving me critical feedback which has improved me as an engineer. I had fun, learned a lot, and there’s much more to learn and execute.
+
+<img
+  src="/content/portfolio/robotics/projects/vikaso-internship/images/with-ali.jpg"
+  alt="Me with Ali, my mentor at Vikaso"
+  className="project-image"
+/>
+
+<Caption>With Ali, my mentor at Vikaso</Caption>
