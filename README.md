@@ -4,7 +4,7 @@ My personal portfolio website.
 
 **Live site:** [sienarindustries.com](https://sienarindustries.com)
 
-> **Work in progress (20 October 2026):** Some project pages, images, and
+> **Work in progress (24 October 2026):** Some project pages, images, and
 > videos are still missing. I am adding them one project at a time.
 
 ## About me
