@@ -99,7 +99,7 @@ blockquote {
     margin: 1.5rem 0;
     padding: 0.5rem 1.25rem;
     border-left: 3px solid var(--text-color);
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 500;
 }
 
@@ -151,9 +151,74 @@ blockquote p:last-child {
     margin: 0 auto 1rem;
 }
 
+/* Vertical videos (YouTube Shorts): a black 4:3 frame at full media width */
 .project-body .video-embed--portrait {
-    max-width: calc(var(--media-width) * 0.32);   /* same height as a 16:9 embed */
+    aspect-ratio: 4 / 3;
+    background: #000;
+    border-radius: 8px;
+}
+
+.project-body .video-embed--portrait iframe,
+.project-body .video-embed--portrait video {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 42.1875%;    /* (3/4) × (9/16): a 9:16 video at the full frame height */
+    height: 100%;
+    transform: translateX(-50%);
+    border: none;
+}
+
+/* A vertical video beside its text; stacks on narrow screens */
+.project-body .video-beside {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.project-body .video-beside .video-embed {
+    flex: 0 0 34%;
     aspect-ratio: 9 / 16;
+    margin: 0 0 1rem;
+}
+
+.project-body .video-beside-text {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .project-body .video-beside {
+        flex-direction: column;
+    }
+
+    .project-body .video-beside .video-embed {
+        flex: none;
+        width: 70%;
+        margin: 0 auto 1rem;
+    }
+}
+
+/* Markdown tables inside project pages */
+.project-body table {
+    width: 100%;
+    max-width: var(--media-width);
+    margin: 0 auto 1rem;
+    border-collapse: collapse;
+}
+
+.project-body th,
+.project-body td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid var(--text-color);
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Page title: may run past the column by up to 240px, but never past the viewport */
+.project-body h1 {
+    margin-right: clamp(-240px, calc((var(--text-width) - 100vw) / 2 + 1rem), 0px);
+    text-wrap: balance;
 }
 
 /* Lists inside project pages (the global "ul { list-style: none }" above is for the nav) */

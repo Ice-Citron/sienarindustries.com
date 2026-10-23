@@ -1,112 +1,189 @@
 ---
 github: "https://github.com/Ice-Citron/Edutech-Recon-Drone"
 ---
-# Introduction
+# Google EDUtech Asia 2024: Team Recon Drone
 
-Recon Drone is an AI-powered waste detection system developed for Google's Edutech Asia competition, where our team won the **Champions** title. I served as the chief ML engineer and initial team lead, responsible for the entire AI pipeline.
+We came first place, earning each of us a Chromebook and the Champion accolade. 
 
-The project combines autonomous drone navigation with computer vision to solve waste management challenges. A DJI drone covers designated routes, capturing images that are processed through a YOLOv11 CNN model for waste detection.
-
----
-
-# The Solution
+In November 2024, Louis Gan, Jolie Teo, Jonatas Mancuso and I competed as Team Recon Drone in EDUtech Asia's 2024 Planet Protectors Challenge, a competition heavily backed by Google for Education. The competition’s pitch day was held at the Marina Bay Sands Expo and Convention Centre in Singapore. The prompt from EDUtech was to leverage Google’s technology to tackle waste management. 
 
 <MyCarousel
   slides={[
     {
-      src: "/content/portfolio/deep-learning/projects/edutech/images/pit-display-1.jpg",
-      caption: "Recon Drone pit display at Marina Bay Sands"
+      src: "/content/portfolio/deep-learning/projects/edutech/images/champions-on-stage.jpg",
+      caption: "Our team receiving Chromebooks on stage as K-12 Champion"
     },
     {
-      src: "/content/portfolio/deep-learning/projects/edutech/images/pit-display-2.jpg",
-      caption: "Team presenting our solution"
-    },
-    {
-      src: "/content/portfolio/deep-learning/projects/edutech/images/competition-1.jpg",
-      caption: "Competition venue"
+      src: "/content/portfolio/deep-learning/projects/edutech/images/team-by-booth.jpg",
+      caption: "Our team at the booth in front of our poster"
     }
   ]}
 />
 
-**Recon Drone** is a comprehensive waste management solution:
+## The Solution
 
-1. **ReactJS WebApp** (by Jonatas and Jolie) - Pre-programs drone routes and displays detection results
-2. **DJI Drone Integration** (by Louis Gan) - Uses DJI SDK for autonomous flight along designated paths
-3. **AI Detection Pipeline** (by me) - YOLOv11 model trained on waste detection datasets
-4. **Edge Processing** - Inference runs on Nvidia Jetson Nano or Google Firebase backend
+<div className="video-beside">
 
-<br></br>
-<br></br>
+<div className="video-embed">
+  <iframe
+    src="https://www.youtube.com/embed/AQ2-JziMWtg"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="Recon Drone project video"
+  />
+</div>
 
----
+<div className="video-beside-text">
 
-# My Role
+Our team built Recon Drone, a geospatial waste analytics platform. It takes images from various sources like drones or CCTV, and runs them through a supervised fine-tuned YOLOv11 model whose output is used to display the distribution of waste in a geographic location on a React heatmap over time. This heatmap is useful because it allows relevant stakeholders to analyse where waste accumulates in a region over-time, allowing them to root out the cause behind such accumulation or develop targeted strategies to mitigate pollution. For example, a provincial government that knows where trash builds up can concentrate its waste-handling resources in the appropriate location.
 
-As chief ML engineer, I was responsible for:
-
-- **Model Training**: Trained YOLOv11 CNN using Google Colab and Nvidia H100 GPUs (rented from Tensordock)
-- **Pipeline Development**: Built the inference pipeline for real-time waste detection
-- **System Integration**: Connected the AI model with the drone's image capture system
-- **Team Leadership**: Initially led the team before transferring leadership to Jolie Teo
-
-My workflow followed a similar pattern to GPT-Valkyrie - prototyping on Google Colab's cheaper L4 GPUs before deploying training jobs to H100s for production.
-
-<br></br>
-<br></br>
-
----
-
-# Competition & Recognition
-
-<MyCarousel
-  slides={[
-    {
-      src: "/content/portfolio/deep-learning/projects/edutech/images/award-ceremony.jpg",
-      caption: "Champions award ceremony with Google representatives"
-    },
-    {
-      src: "/content/portfolio/deep-learning/projects/edutech/images/team-1.jpg",
-      caption: "Team at Marina Bay Sands"
-    },
-    {
-      src: "/content/portfolio/deep-learning/projects/edutech/images/team-2.jpg",
-      caption: "Team photo"
-    }
-  ]}
-/>
-
-During competition day at Marina Bay Sands, Singapore, we showcased our solution in a pit-display format. It was a great experience - Singapore truly is a tech powerhouse.
-
-**Achievements:**
-- **Champions** of Google Edutech Asia 2024
-- Received Chromebooks from Google as prizes
-- Approached by Singaporean investors for potential funding
-- Pitched the concept in a full-school assembly
-
-The leadership experience gained here, in a business environment, has been valuable for my future goals of creating a fusion energy startup.
-
-<br></br>
-<br></br>
-
----
-
-# Links & Resources
+Beyond waste management, the same platform can address other environmental issues like illegal logging and wildfire monitoring by simply swapping in a different detection model. 
 
 <DocumentLink
-  href="https://github.com/Crispy2chickens/edutech"
-  title="Edutech WebApp Repository"
-  description="ReactJS application by Jolie and Jonatas"
-  icon="💻"
+  href="https://github.com/Ice-Citron/Edutech-Recon-Drone"
+  title="Code Repo"
+  description="github.com/Ice-Citron/Edutech-Recon-Drone"
+  icon="code"
 />
 
----
+<DocumentLink
+  href="https://huggingface.co/shng2025/EDUtech-Recon-Drone-YOLOv11"
+  title="Weights Repo"
+  description="huggingface.co/shng2025/EDUtech-Recon-Drone-YOLOv11"
+  icon="🔗"
+/>
 
-# Skills Developed
+<DocumentLink
+  href="https://www.instagram.com/mcmedutech/"
+  title="Instagram"
+  description="@mcmedutech"
+  icon="🔗"
+/>
 
-- Computer vision model training (YOLOv11)
-- Edge computing with Nvidia Jetson Nano
-- Team leadership and delegation
-- Competition pitching and presentation
-- Business pitch development for investors
-- Integration of multiple systems (drone, AI, webapp)
+</div>
 
+</div>
+
+<a href="/content/portfolio/deep-learning/projects/edutech/recon-drone-poster.pdf" target="_blank" rel="noopener noreferrer">
+  <img
+    src="/content/portfolio/deep-learning/projects/edutech/images/recon-drone-poster.jpg"
+    alt="Our competition poster"
+    className="project-image"
+  />
+</a>
+
+## My Role
+
+I was the lead machine learning engineer and owned the perception stack. The goal was to ship a computer vision model that, using each image from Louis's drone data store, the model detects every piece of trash in it and classifies the type, before finally handing the bounding box detections to Jolie and Jonatas's Flask and Firebase backend for the heatmap.
+
+I first experimented with a ViT classifier in September, and also with training a custom CNN from the ground up. In the end, I went with fine-tuning a YOLOv11 open-source waste datasets I collated from Roboflow. This is because a ViT classifier would’ve been too expensive to serve at scale, and I lacked the technical experience as well as both data and compute resources needed to train a custom classifier CNN from the ground up.
+
+Before any big training runs, I always tested our training code on an NVIDIA L4 from Google Colab, because it's cheaper to fail and make mistakes in Google Colab. Then, once my training code is tested, I fine-tuned a YOLOv11l model on waste classification using NVIDIA H100 spot instances from Google Cloud GCP. I logged our training curves and data to Weights & Biases and uploaded each checkpoint onto Hugging Face.
+
+To fine-tune our computer vision model, I collected 300 thousand images from 25 open-source waste-classification related datasets and merged them on Roboflow. Our final model is a YOLOv11-L, fine-tuned for 9 epochs, reaching 0.381 mAP50 and 0.264 mAP50-95 on our validation set, and forward-passes an image in ~0.015 seconds on an NVIDIA L4.
+
+There were a few hurdles in the process. Although Jolie had experience with CNNs from her coursework whilst I did GPTs for mine ([read more here](/project/gpt-valkyrie)), I just wasn't that experienced then with CNNs and computer vision back then. An example of such a hurdle was that I didn't consolidate the differing class names across the 25 datasets. Because the 31 different class names highly likely made it very hard for the model to learn, as one dataset called glass waste "glass" whilst another called it "glass bottle". This meant the model was penalised inappropriately, which really messed up our initial training runs.
+
+| Class | Source classes folded in |
+|---|---|
+| Glass | glass, glass bottle |
+| Metal | metal, can, aluminium foil, pop tab |
+| Plastic | plastic, PET bottle, plastic bag, plastic buoy, plastic container, bottle |
+| Styrofoam | styrofoam box, buoy, piece, cup |
+| Paper | paper, cardboard, carton |
+| Rope | rope, net |
+| Food Waste | food, decomposable |
+| Other | other litter, straw, fabrics, wood, cigarette, wrapper, lid, bottle cap |
+
+To see our training run’s report:
+
+<PDFViewer url="/content/portfolio/deep-learning/projects/edutech/recon-drone-training-report.pdf" />
+
+To see how to reproduce our training run:
+
+<DocumentLink
+  href="https://forge.coreweave.com/wandb/marlborough-college-malaysia/Edutech/reports/Recon-Drone-MCM-Edutech-Asia--VmlldzoxODE0OTE0OA"
+  title="Weights & Biases report"
+  description="forge.coreweave.com/wandb/marlborough-college-malaysia/Edutech"
+  icon="🔗"
+/>
+
+## Competition & Recognition
+
+We came first place, earning each of us a Chromebook and the Champion accolade. We also had the honour of delivering a keynote speech to an audience exceeding 1,000 educational professionals at the Conference, as part of being a finalist.
+
+<DocumentLink
+  href="https://www.marlboroughcollegemalaysia.org/mcm-success-at-edutech-asias-planet-protectors-challenge/"
+  title="MCM Success at EduTech Asia's Planet Protectors Challenge"
+  description="Marlborough College Malaysia, 18 November 2024"
+  icon="🔗"
+/>
+
+<div className="video-embed">
+  <iframe
+    src="https://www.youtube.com/embed/0D65uZaONBg"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="Main-stage keynote at Marina Bay Sands"
+  />
+</div>
+
+<div className="video-embed">
+  <iframe
+    src="https://www.youtube.com/embed/nM7g6zC_H5I"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="Finale team presentation"
+  />
+</div>
+
+## Additional Cool Images
+
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/team-victory-by-stage.jpg",
+      caption: "The team by the stage after the win"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/finale-presentation.jpg",
+      caption: "Final presentation"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/big-stage-speech-mbs.jpg",
+      caption: "Main-stage speech"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/team-giving-demo.jpg",
+      caption: "Live demo"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/shi-hao-and-jolie-demo.jpg",
+      caption: "Shi Hao and Jolie demo the web app"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/booth-visitor-demo.jpg",
+      caption: "A visitor at our booth"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/exhibition-floor.jpg",
+      caption: "The exhibition floor"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/team-by-edutech-logo-chromebook.jpg",
+      caption: "With the prize Chromebooks"
+    },
+    {
+      src: "/content/portfolio/deep-learning/projects/edutech/images/team-at-google-booth-chromebook.jpg",
+      caption: "At the Google booth"
+    }
+  ]}
+/>
+
+## Credits
+
+- Jolie Teo ([Crispy2chickens](https://github.com/Crispy2chickens)): Lead Pipeline Engineer and Assistant Machine Learning Engineer. Team lead.
+- Olivier Bhogal: Creative Director and Assistant Pipeline Engineer.
+- Jonatas Mancuso: Lead Front-end Developer.
+- Louis Gan: Lead Drone Engineer and Assistant Pipeline Engineer.
+- Shi Hao Ng ([Ice-Citron](https://github.com/Ice-Citron)): Lead Machine Learning Engineer. Initial team lead.
