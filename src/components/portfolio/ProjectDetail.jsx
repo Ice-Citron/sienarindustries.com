@@ -333,6 +333,15 @@ export default function ProjectDetail() {  // Changed name to match your file
         )}
       </div>
 
+      {/* Banner for pages flagged `outdated: true` in their front matter */}
+      {frontMatter.outdated && (
+        <p className="page-disclaimer">
+          Heads up: this page isn't up to date yet. It started as a stub that I
+          quickly filled with AI-generated text a year ago, and I'm now working
+          hard to rewrite every page properly. Last updated: 24 October 2026.
+        </p>
+      )}
+
       {/* Show PDF if specified in frontmatter */}
       {frontMatter.pdfUrl && (
         <PDFViewer url={frontMatter.pdfUrl} />
