@@ -78,7 +78,7 @@ const PdfDocument = ({ url, height }) => {
         >
           +
         </button>
-        <a href={url} target="_blank" rel="noopener noreferrer">Open ↗</a>
+        <a href={url} target="_blank" rel="noopener noreferrer">Open</a>
       </div>
       <div ref={scrollBox} className="pdf-document">
         <Document
