@@ -80,8 +80,27 @@ export const About = () => {
             <Col lg="7">
               {dataabout.currentProjects.map((project, i) => (
                 <div className="service_ py-4" key={i}>
-                  <h5 className="service__title">{project.title}</h5>
-                  <p className="service_desc">{project.description}</p>
+                  <h5 className="service__title">
+                    {project.title}
+                    {project.codebase && (
+                      <>
+                        {" | "}
+                        <a href={project.codebase} target="_blank" rel="noopener noreferrer">
+                          CodeBase
+                        </a>
+                      </>
+                    )}
+                  </h5>
+                  {project.description && (
+                    <p className="service_desc">{project.description}</p>
+                  )}
+                  {project.points && (
+                    <ul className="service_desc" style={{ listStyle: "disc", paddingLeft: "1.25rem" }}>
+                      {project.points.map((point, j) => (
+                        <li key={j}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
               {dataabout.interests && (

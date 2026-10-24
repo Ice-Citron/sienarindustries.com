@@ -14,6 +14,12 @@ Redirect 302 /tractable/se3-labs https://jobs.ashbyhq.com/se3/9e554e3e-94fe-4e0d
         Header set Pragma "no-cache"
         Header set Expires "0"
     </FilesMatch>
+
+    # PDFs keep the same name when updated, so browsers must always check
+    # for a newer copy (an unchanged file costs only a "304 Not Modified")
+    <FilesMatch "\.pdf$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
 </IfModule>
 
 # Long-term cache for hashed static assets (JS, CSS, media)
