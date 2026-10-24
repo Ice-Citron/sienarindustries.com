@@ -5,7 +5,7 @@ github: "https://github.com/Ice-Citron/Edutech-Recon-Drone"
 
 We came first place, earning each of us a Chromebook and the Champion accolade. 
 
-In November 2024, Louis Gan, Jolie Teo, Jonatas Mancuso and I competed as Team Recon Drone in EDUtech Asia's 2024 Planet Protectors Challenge, a competition heavily backed by Google for Education. The competition’s pitch day was held at the Marina Bay Sands Expo and Convention Centre in Singapore. The prompt from EDUtech was to leverage Google’s technology to tackle waste management. 
+In November 2024, Louis Gan, Jolie Teo, Jonatas Mancuso, Olivier Bhogal and I competed as Team Recon Drone in EDUtech Asia's 2024 Planet Protectors Challenge, a competition heavily backed by Google for Education. The competition’s pitch day was held at the Marina Bay Sands Expo and Convention Centre in Singapore. The prompt from EDUtech was to leverage Google’s technology to tackle waste management. 
 
 <MyCarousel
   slides={[
@@ -69,6 +69,20 @@ Beyond waste management, the same platform can address other environmental issue
   icon="🔗"
 />
 
+<DocumentLink
+  href="/content/portfolio/deep-learning/projects/edutech/recon-drone-training-report.pdf"
+  title="Training Report (PDF)"
+  description="recon-drone-training-report.pdf"
+  icon="📄"
+/>
+
+<DocumentLink
+  href="https://www.marlboroughcollegemalaysia.org/mcm-success-at-edutech-asias-planet-protectors-challenge/"
+  title="School Article"
+  description="marlboroughcollegemalaysia.org"
+  icon="🔗"
+/>
+
 ## My Role
 
 I was the lead machine learning engineer and owned the perception stack. The goal was to ship a computer vision model that, using each image from Louis's drone data store, the model detects every piece of trash in it and classifies the type, before finally handing the bounding box detections to Jolie and Jonatas's Flask and Firebase backend for the heatmap.
@@ -96,13 +110,20 @@ To see our training run’s report:
 
 <PDFViewer url="/content/portfolio/deep-learning/projects/edutech/recon-drone-training-report.pdf" />
 
-To see how to reproduce our training run:
-
 <DocumentLink
   href="https://forge.coreweave.com/wandb/marlborough-college-malaysia/Edutech/reports/Recon-Drone-MCM-Edutech-Asia--VmlldzoxODE0OTE0OA"
   title="Weights & Biases report"
   description="forge.coreweave.com/wandb/marlborough-college-malaysia/Edutech"
   icon="🔗"
+/>
+
+To see how to reproduce our training run:
+
+<DocumentLink
+  href="https://github.com/Ice-Citron/Edutech-Recon-Drone/blob/main/docs/training.md"
+  title="docs/training.md"
+  description="github.com/Ice-Citron/Edutech-Recon-Drone/blob/main/docs/training.md"
+  icon="code"
 />
 
 ## Competition & Recognition

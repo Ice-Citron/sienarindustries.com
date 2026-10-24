@@ -5,6 +5,7 @@ import { Buffer } from "buffer";
 import { Link } from "react-router-dom";  // <-- import Link from React Router
 import SkillsShowcase from "./SkillsShowcase";
 import VideoSummary from "./VideoSummary";  // If you have a separate video component
+import PdfFrame from "./PdfFrame";
 
 if (!window.Buffer) window.Buffer = Buffer;
 
@@ -91,11 +92,6 @@ const ProjectGrid = ({ category }) => {
   // If "resume", show embedded PDF
   if (category === "resume") {
     const pdfPath = "/assets/Shi-Hao-Ng__Resume.pdf";
-    const isMobile = typeof window !== "undefined" &&
-      (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768);
-    const pdfSrc = isMobile
-      ? `https://docs.google.com/gview?url=${encodeURIComponent(window.location.origin + pdfPath)}&embedded=true`
-      : pdfPath;
 
     return (
       <div style={{ marginTop: "2rem" }}>
@@ -107,11 +103,7 @@ const ProjectGrid = ({ category }) => {
           borderRadius: "8px",
           overflow: "hidden",
         }}>
-          <iframe
-            src={pdfSrc}
-            style={{ width: "100%", height: "100%", border: "none" }}
-            title="Resume - Shi Hao Ng"
-          />
+          <PdfFrame url={pdfPath} height="100%" title="Resume - Shi Hao Ng" />
         </div>
         <div style={{ marginTop: "1rem" }}>
           <a

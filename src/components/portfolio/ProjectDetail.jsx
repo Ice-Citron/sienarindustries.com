@@ -5,6 +5,7 @@ import { evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import remarkGfm from "remark-gfm";
 import MyCarousel from "./Carousel";
+import PdfFrame from "./PdfFrame";
 
 // Add the base URL utility function
 const getBaseUrl = () => {
@@ -15,12 +16,8 @@ const getBaseUrl = () => {
 
 // PDF Viewer component remains the same
 const PDFViewer = ({ url }) => (
-  <div style={{ width: '100%', height: '600px', marginBottom: '1rem' }}>
-    <iframe
-      src={url}
-      style={{ width: '100%', height: '100%', border: 'none' }}
-      title="PDF Viewer"
-    />
+  <div style={{ width: '100%', marginBottom: '1rem' }}>
+    <PdfFrame url={url} height="600px" />
   </div>
 );
 
