@@ -1,11 +1,30 @@
 ---
-github: "https://github.com/Ice-Citron/Project-Automaton"
+github: "https://github.com/Ice-Citron/Project-Automaton__Quantarune__"
+model_weights: "https://huggingface.co/shng2025/quantarune-act-fsm-sc-scripted-insert"
 ---
 # Quantarune: Project Automaton
 
 From February 2026 to June 2026, I competed in Intrinsic’s AI for Industry Challenge, finishing it with Rucha Agashe as Team Quantarune. At the time, I wanted to pivot from building with agentic systems and post-training language models to Physical AI, because I believed robotics is the future. This was my first proper robotics project. I was most interested in reinforcement learning and simulations, and hoped that the competition would allow me to apply RL for once. I even bought an RTX 5090 workstation for it. 
 
 > We finished 49th out of 196 teams. Our policy scored 141 in our local benchmark and 89 on the competition held-out evals.
+
+<div className="video-embed">
+  <iframe
+    src="https://www.youtube.com/embed/uIU_bVWS30E"
+    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
+    allowFullScreen
+    title="Project Automaton summary video"
+  />
+</div>
+
+<Caption>Video showcasing our final policy in action</Caption>
+
+<DocumentLink
+  href="https://huggingface.co/shng2025/quantarune-act-fsm-sc-scripted-insert"
+  title="Final ACT-FSM model weights"
+  description="shng2025/quantarune-act-fsm-sc-scripted-insert, on Hugging Face"
+  icon="🤗"
+/>
 
 <img
   src="/content/portfolio/robotics/projects/project-automaton/images/5090-new-pc.jpg"
@@ -42,16 +61,14 @@ Intrinsic’s AI for Industry Challenge is a competition run by Alphabet’s Int
 
 <div className="video-embed">
   <iframe
-    src="https://www.youtube.com/embed/Y-x0efG1seA"
+    src="https://www.youtube.com/embed/b7wWoSmcqyQ"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
     allowFullScreen
-    title="Coming soon"
+    title="CheatCode policy doing cable insertion"
   />
 </div>
 
-<Caption>Coming soon: Video of CheatCode policy doing cable-insertion into task board</Caption>
-
-*[HuggingFace Dataset coming soon: CheatCode.py SFP trajectories, 100 domain randomised episodes. The HF repo is private for now, will be uploaded soon]*
+<Caption>Video of CheatCode policy doing cable-insertion into task board</Caption>
 
 <DocumentLink
   href="https://huggingface.co/rangers-intrinsic/hf_act_SC_only_connector_3cam_final/tree/main"
@@ -61,6 +78,8 @@ Intrinsic’s AI for Industry Challenge is a competition run by Alphabet’s Int
 />
 
 We started with imitation learning. Intrinsic, the competition organiser, provides scripted reference policies in their repository (`CheatCode.py`) for the two connector types, SFP and SC. So, we recorded the trajectories from `CheatCode.py` across 100+ domain randomised episodes per connector type, and trained ACT (Action Chunking with Transformers) on these trajectories. 
+
+To acquire more varied demonstrations, I also built a Cartesian teleoperation pipeline and recorded insertions by driving the UR5e myself with a keyboard.
 
 <div className="video-embed">
   <iframe
@@ -73,43 +92,83 @@ We started with imitation learning. Intrinsic, the competition organiser, provid
 
 <Caption>Video of me showcasing my modified-cartesian teleoperation recording pipeline to teammates</Caption>
 
-To acquire more varied demonstrations, I also built a Cartesian teleoperation pipeline and recorded insertions by driving the UR5e myself with a keyboard.
-
 <div className="video-embed">
   <iframe
-    src="https://www.youtube.com/embed/Y-x0efG1seA"
+    src="https://www.youtube.com/embed/havYEkYhJIg"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
     allowFullScreen
-    title="Coming soon"
+    title="Initial ACT model doing cable insertion"
   />
 </div>
 
-<Caption>Coming soon: Video of the initial-version's ACT model’s poor performance in doing cable-insertion</Caption>
+<Caption>Video of the initial-version's ACT model’s poor performance in doing cable-insertion</Caption>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/lerobot-sfp-student-clean-497-seed-6531465314"
+  title="lerobot-sfp-student-clean-497-seed-6531465314"
+  description="497 SFP episodes, LeRobot format"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/sfp-300-04-20-21-55-preannotation"
+  title="sfp-300-04-20-21-55-preannotation"
+  description="SFP pre-annotation recordings, 21 April 2026"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/aic-act-sfp-246-mixed-lerobot-dataset"
+  title="aic-act-sfp-246-mixed-lerobot-dataset"
+  description="246 mixed SFP episodes, LeRobot format"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/aic-act-sfp-198-lerobot-dataset"
+  title="aic-act-sfp-198-lerobot-dataset"
+  description="198 SFP episodes, LeRobot format"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/sfp_200_04-20-02-53_preannotation"
+  title="sfp_200_04-20-02-53_preannotation"
+  description="SFP pre-annotation recordings, 20 April 2026"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/sfp-50-04-19-17-22-preannotation"
+  title="sfp-50-04-19-17-22-preannotation"
+  description="SFP pre-annotation recordings, 19 April 2026"
+  icon="🤗"
+/>
+
+<PDFViewer url="/content/portfolio/robotics/projects/project-automaton/aic-act-training-wandb-report.pdf" />
 
 Unfortunately, the performance was poor. Our policy only learned the easy half, it moved the TCP (the cable tip) reliably towards the correct port, but it could never complete the insertion as it would get stuck instead within millimeters.
-
-<div className="video-embed">
-  <iframe
-    src="https://www.youtube.com/embed/Y-x0efG1seA"
-    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
-    allowFullScreen
-    title="Coming soon"
-  />
-</div>
-
-<Caption>Coming soon: Video where the ACT model gets close to SC/SFP but always gets stuck at the end</Caption>
 
 At this point, the first part, getting the TCP from the dock to just on top of the correct port, worked. The bottleneck was the last few millimeters, where the TCP had to actually insert into the port, and handle contact dynamics. This, final-stage cable insertion, was the kind of task where I had pinned my hopes and anticipation on reinforcement learning in robotic simulation, as it’s the whole reason I entered this competition—because of my love and admiration for the power of reinforcement learning’s ceiling. 
 
 It didn’t work. Perhaps it was because I lacked the necessary skills because this was my first proper reinforcement learning project, however this made me realise, first-hand, the industry consensus about how it’s incredibly hard to make RL work, especially for contact-rich manipulation. The search space was ginormous and the reward signal is very sparse, and after weeks without progress we had also dropped this idea. 
 
-<img
-  src="/assets/images/thumbnails/placeholder.svg"
-  alt="Coming soon"
-  className="project-image"
+<MyCarousel
+  slides={[
+    {
+      src: "/content/portfolio/robotics/projects/project-automaton/images/sam-proposals-vs-pseudolabel.png",
+      caption: "SAM segmentation: SAM ViT-B mask proposals (left) and the best proposal against the pseudo-label (right)"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/project-automaton/images/cnos-dinov2-selection.png",
+      caption: "CNOS segmentor: DINOv2 similarity picks a proposal in each frame, with its IoU against the pseudo-label"
+    },
+    {
+      src: "/content/portfolio/robotics/projects/project-automaton/images/megapose-segmenter-val-overlays.png",
+      caption: "MegaPose segmentor: validation overlays for sfp_port_0 across episodes"
+    }
+  ]}
 />
-
-<Caption>Coming soon: example segmentation from our deployed perception models</Caption>
 
 I also experimented with adding perception, with CNOS for segmentation and MegaPose for 6D pose estimation. The idea was that this would improve policy performance in training, as the policy can now tell apart the ports, from the task board, from the white table. Ultimately, we dropped the computer vision models due to competition compute-constraints. Because the held-out eval submissions were evaluated using a single NVIDIA L4 GPU, and adding two ViTs on top of our ACT policy was too much for the single L4 GPU to handle. The perception-overhead would’ve increased inference latency so much so that our control frequency would be decreased to the point where the policy could no longer handle fine-insertion, inside Gazebo, let alone the real world!
 
@@ -128,25 +187,56 @@ The ACT models behind APPROACH and ALIGN were trained on our custom-curated reco
 
 <div className="video-embed">
   <iframe
-    src="https://www.youtube.com/embed/Y-x0efG1seA"
+    src="https://www.youtube.com/embed/uIU_bVWS30E"
     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
     allowFullScreen
-    title="Coming soon"
+    title="Our final FSM-ACT policy doing cable insertion"
   />
 </div>
 
-<Caption>Coming soon: Video showcasing our final FSM-ACT policy’s superior performance</Caption>
+<Caption>Video showcasing our final FSM-ACT policy’s superior performance</Caption>
 
-<div className="video-embed">
-  <iframe
-    src="https://www.youtube.com/embed/Y-x0efG1seA"
-    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", borderRadius: "8px"}}
-    allowFullScreen
-    title="Coming soon"
-  />
-</div>
+<DocumentLink
+  href="https://huggingface.co/shng2025/quantarune-act-fsm-sc-scripted-insert"
+  title="Final ACT-FSM model weights"
+  description="shng2025/quantarune-act-fsm-sc-scripted-insert, on Hugging Face"
+  icon="🤗"
+/>
 
-<Caption>Coming soon: Video showcasing FSM-ACT policy’s RETRY (contingency) after getting stuck</Caption>
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/quantarune-act-fsm-sfp-stage-dataset"
+  title="quantarune-act-fsm-sfp-stage-dataset"
+  description="Dataset used by the final ACT-FSM policy"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/quantarune-act-fsm-sc-stage-dataset"
+  title="quantarune-act-fsm-sc-stage-dataset"
+  description="Dataset used by the final ACT-FSM policy"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/quantarune-act-fsm-sfp-demonstrations"
+  title="quantarune-act-fsm-sfp-demonstrations"
+  description="Dataset used by the final ACT-FSM policy"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/quantarune-act-fsm-sc-demonstrations"
+  title="quantarune-act-fsm-sc-demonstrations"
+  description="Dataset used by the final ACT-FSM policy"
+  icon="🤗"
+/>
+
+<DocumentLink
+  href="https://huggingface.co/datasets/shng2025/quantarune-act-fsm-scored-trials"
+  title="quantarune-act-fsm-scored-trials"
+  description="Dataset used by the final ACT-FSM policy"
+  icon="🤗"
+/>
 
 By then it was mid-June, and I was in the middle of my first-year Computing final exams at Imperial, so the last few weeks had far fewer hours for which I’ve allocated for this competition than I ideally should have. We only ended up finishing the FSM-ACT policy after my finals, and days before the qualification deadline and submitted it. 
 
@@ -180,3 +270,10 @@ Tragically, nothing downstream can recover from a bad APPROACH, so we lost two o
 - Then, I worked with Evan O’Leary, Ali Muhammad, Justin, Enrique, Tommy and Sanjay in Team Rangers.
 - Ultimately, I worked with Rucha Agashe in Team Quantarune.
 - It is a huge pleasure to work with all of you for which I’ve learned a lot. 
+
+<DocumentLink
+  href="https://www.linkedin.com/posts/shi-hao-ng_from-feb-2026-to-june-2026-i-competed-in-ugcPost-7523781988185571328-hG_a"
+  title="LinkedIn Post"
+  description="Project Automaton summary"
+  icon="🔗"
+/>
